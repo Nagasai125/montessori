@@ -103,6 +103,32 @@
             animation: button-glow 4s ease-in-out infinite;
         }
     </style>
+
+    <script>
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // Disable certain keyboard shortcuts
+    document.addEventListener('keydown', event => {
+        // Disable F12
+        if (event.key === 'F12') {
+            event.preventDefault();
+        }
+        // Disable Ctrl+Shift+I (or Cmd+Option+I on Mac)
+        if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key === 'I') {
+            event.preventDefault();
+        }
+        // Disable Ctrl+Shift+J (or Cmd+Option+J on Mac)
+        if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key === 'J') {
+            event.preventDefault();
+        }
+        // Disable Ctrl+U (or Cmd+U on Mac)
+        if ((event.ctrlKey || event.metaKey) && event.key === 'U') {
+            event.preventDefault();
+        }
+    });
+</script>
+    
 </head>
 <body class="bg-stone-50 text-slate-700">
 
