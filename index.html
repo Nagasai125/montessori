@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reston Montessori School</title>
     
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     
+    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -108,13 +110,43 @@
 }
     </style>
 
+<!-- <script>
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // Disable certain keyboard shortcuts
+    document.addEventListener('keydown', event => {
+        // Disable F12
+        if (event.key === 'F12') {
+            event.preventDefault();
+        }
+        // Disable Ctrl+Shift+I (or Cmd+Option+I on Mac)
+        if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key === 'I') {
+            event.preventDefault();
+        }
+        // Disable Ctrl+Shift+J (or Cmd+Option+J on Mac)
+        if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key === 'J') {
+            event.preventDefault();
+        }
+        // Disable Ctrl+U (or Cmd+U on Mac)
+        if ((event.ctrlKey || event.metaKey) && event.key === 'U') {
+            event.preventDefault();
+        }
+    });
+</script> -->
+
 </head>
 <body class="bg-stone-50 text-slate-700">
 
+    <!-- Header Section -->
     <header id="main-header" class="fixed top-0 z-50 w-full">
-        <div id="top-info-bar" class="text-white transition-colors duration-300">
+        <!-- Top information bar -->
+        <!-- Top information bar -->
+<!-- Top information bar -->
+<div id="top-info-bar" class="text-white transition-colors duration-300">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-center md:justify-between h-10 text-sm">
+            <!-- Left side navigation -->
             <nav class="hidden md:flex items-center space-x-6">
                 <a href="#" class="hover:text-amber-300 transition-colors">MMUN</a>
                 <a href="#" class="hover:text-amber-300 transition-colors">PTA</a>
@@ -122,6 +154,7 @@
                 <a href="#" class="hover:text-amber-300 transition-colors">School Events</a>
                 <a href="#" class="hover:text-amber-300 transition-colors">General Info</a>
             </nav>
+            <!-- Right side content: Location, Phone, and Social Media -->
             <div class="flex items-center space-x-4">
                 <a href="https://www.google.com/maps/search/?api=1&query=1765+Business+Center+Dr,Reston,VA+20190" target="_blank" rel="noopener noreferrer" class="hidden md:flex items-center font-semibold hover:text-amber-300 transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="mr-2 text-blue-400" viewBox="0 0 16 16">
@@ -135,28 +168,34 @@
                     </svg>
                     <span>703-481-2922</span>
                 </a>
+                <!-- Social Media Icons (hidden on mobile) -->
                 <div class="hidden md:flex items-center space-x-4">
                     <a href="#" class="text-white hover:text-amber-300 transition-colors"><span class="sr-only">Facebook</span><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
                     <a href="#" class="text-white hover:text-amber-300 transition-colors"><span class="sr-only">X</span><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
-                    <a href="#" class="text-white hover:text-amber-300 transition-colors"><span class="sr-only">Instagram</span><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 012.792 2.792c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-2.792 2.792c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-2.792-2.792c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465 2.427a4.902 4.902 0 012.792-2.792c.636-.247 1.363.416 2.427.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm5.25-9.75a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z" clip-rule="evenodd" /></svg></a>
+                    <a href="#" class="text-white hover:text-amber-300 transition-colors"><span class="sr-only">Instagram</span><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 012.792 2.792c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-2.792 2.792c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-2.792-2.792c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218 1.791.465 2.427a4.902 4.902 0 012.792-2.792c.636-.247 1.363.416 2.427.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm5.25-9.75a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z" clip-rule="evenodd" /></svg></a>
                 </div>
             </div>
         </div>
     </div>
 </div>
         
+        <!-- Divider line -->
         <div id="header-divider" class="container mx-auto border-b border-white/20 transition-opacity duration-300"></div>
 
+        <!-- Main Navigation Bar -->
         <div id="main-nav-bar" class="relative transition-all duration-300">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
+                    <!-- Logo (Left side) -->
                     <div class="flex-shrink-0">
                         <a href="#" class="flex items-center space-x-2">
                              <img class="h-16 w-auto" src="RMS_logo.png" alt="Montessori School Logo" onerror="this.onerror=null;this.src='https://placehold.co/150x64/0ea5e9/ffffff?text=Montessori';">
                         </a>
                     </div>
 
+                    <!-- Wrapper for right-aligned content (Desktop) -->
                     <div class="hidden md:flex items-center space-x-8">
+                        <!-- Desktop Navigation -->
                         <nav id="desktop-nav" class="flex items-center space-x-8">
                             <a href="#about" class="font-bold text-white hover:text-blue-300 transition-colors duration-300">About us</a>
                             <a href="#programs" class="font-bold text-white hover:text-blue-300 transition-colors duration-300">Programs</a>
@@ -165,6 +204,7 @@
                             <a href="#contact" class="font-bold text-white hover:text-blue-300 transition-colors duration-300">Contact us</a>
                         </nav>
 
+                        <!-- CTA Button -->
                         <div>
                             <a href="#" class="inline-block bg-amber-500 text-white font-semibold px-5 py-3 rounded-full shadow-md hover:bg-amber-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                                 Schedule Tour
@@ -172,6 +212,7 @@
                         </div>
                     </div>
                     
+                    <!-- Mobile Menu Button (Right side) -->
                     <div class="md:hidden">
                         <button id="hamburger-button" class="p-2 rounded-md text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
                             <span class="sr-only">Open main menu</span>
@@ -184,6 +225,7 @@
             </div>
         </div>
         
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-white">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-bold text-slate-700 hover:text-white hover:bg-blue-500">About us</a>
@@ -200,6 +242,7 @@
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section class="relative h-screen w-full overflow-hidden bg-slate-800">
             <video poster="poster.png" autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
                 <source src="video_hero.mp4" type="video/mp4">
@@ -222,7 +265,10 @@
             </div>
         </section>
 
-        <section id="about" class="py-24 lg:py-32 bg-orange-100">
+        <!-- About Section: 3-Card Layout -->
+ <!-- About Section: Card Layout -->
+<!-- About Section: Card Layout -->
+<section id="about" class="py-20 lg:py-28 bg-orange-100">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <h2 class="text-4xl lg:text-5xl font-bold text-[#3D405B]">Welcome to Our Wonderland</h2>
@@ -231,53 +277,81 @@
         
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
-            <div class="bg-stone-600 text-white rounded-3xl shadow-xl p-8 flex flex-col items-center text-center">
-                <img src="kathy.png" alt="Founder Kathlean Lanfear" class="w-52 h-52 rounded-full object-cover shadow-lg border-4 border-white mb-6" onerror="this.onerror=null;this.src='https://placehold.co/160x160/ffffff/3D405B?text=KL';">
-                <div>
-                    <h3 class="text-3xl font-bold text-white mb-2">Our Founder</h3>
-                    <blockquote class="text-stone-200 italic mb-3 ">
-                        "As you begin this journey for your family, we invite you to discover why for 30 years families continue to choose Reston Montessori School for their child’s early and elementary education.
-
-                        "
+            <!-- Card 1: Founder -->
+            <div class="bg-stone-600 text-white rounded-3xl shadow-xl p-6 lg:p-8 flex flex-col items-center text-center">
+                <img src="kathy.png" alt="Founder Kathlean Lanfear" class="w-40 h-40 rounded-full object-cover shadow-lg border-4 border-white mb-6" onerror="this.onerror=null;this.src='https://placehold.co/160x160/ffffff/3D405B?text=KL';">
+                <div class="flex-grow">
+                    <h3 class="text-2xl font-bold text-white mb-2">Our Founder</h3>
+                    <blockquote class="text-stone-200 italic mb-3">
+                        "As you begin this journey for your family, we invite you to discover why for 30 years families continue to choose Reston Montessori School for their child’s early and elementary education."
                     </blockquote>
                     <cite class="not-italic font-bold text-white">Kathlean Lanfear</cite>
                 </div>
             </div>
 
-            <div class="bg-[#81B29A] text-white rounded-3xl shadow-xl p-8 flex flex-col text-left">
-                <div class="text-center">
-                    <h3 class="text-3xl font-bold mb-2">Our Philosophy</h3>
-                    </div>
-                <div class="space-y-3 text-white/90">
-                    <p class="text-sm mb-4 font-bold text-l">Since 1986</p>
+            <!-- Card 2: Philosophy -->
+            <div class="bg-[#81B29A] text-white rounded-3xl shadow-xl p-6 lg:p-8 flex flex-col text-center">
+                <h3 class="text-2xl font-bold mb-2">Our Philosophy</h3>
+                <div class="flex-grow space-y-3 text-white/90 text-left">
+                    <p class="text-sm mb-4 font-bold">Since 1986</p>
                     <p>From the moment you arrive at our private school-Reston Montessori, you will feel the warmth and energy of our community. Our classrooms, beginning with infants and moving on to the sixth grade, are exciting learning environments where independence, self-esteem, integrity, and personal responsibility are fostered. Faculty and staff are enthusiastic and engaged as they lay the foundation for motivating a child to love learning. Families are supportive and involved as they partner with us in their child's education. We at RMS work diligently to achieve the goal of comprehensive development of the child.</p>
-                </div><br>
-                <br>
-                <a href="#" class="font-bold text-white hover:text-yellow-300 transition-colors duration-300 mt-4 inline-block self-center">Learn More →</a>
+                </div>
+                <a href="#" class="font-bold text-white hover:text-yellow-300 transition-colors duration-300 mt-6 inline-block self-center">Learn More →</a>
             </div>
 
-            <div class="bg-[#F28482] text-white rounded-3xl shadow-xl p-8 flex flex-col">
+            <!-- Card 3: Community -->
+            <div class="bg-[#F28482] text-white rounded-3xl shadow-xl p-6 lg:p-8 flex flex-col text-center">
                 <h3 class="text-3xl font-bold mb-4 text-center">Our Community</h3>
-                 <div class="aspect-w-16 aspect-h-9 mb-4 flex-grow">
-                    <iframe class="w-full h-full rounded-2xl shadow-lg" src="https://www.youtube.com/embed/dJKK-n1SbEE?si=ZgovXbowQpqAZKan" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                 <div class="flex-grow">
+                    <div class="aspect-w-16 aspect-h-9 mb-4">
+                        <iframe class="w-full h-full rounded-2xl shadow-lg" src="https://www.youtube.com/embed/dJKK-n1SbEE?si=ZgovXbowQpqAZKan" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <p class="text-white/90 text-left">There are many opportunities for you to get to know us. Though our website has a wealth of information, we would like to invite you to schedule a visit of our school and observe our students and teachers at work or join us for an in-depth discussion of Montessori with our faculty and staff members at one of our Open Houses. We look forward to meeting you and sharing with you in our private school-Reston Montessori School.</p>
                 </div>
-                <p class="space-y-3 text-white/90 ">There are many opportunities for you to get to know us. Though our website has a wealth of information, we would like to invite you to schedule a visit of our school and observe our students and teachers at work or join us for an in-depth discussion of Montessori with our faculty and staff members at one of our Open Houses.
-
-                    We look forward to meeting you and sharing with you in our private school-Reston Montessori School.</p>
-                <a href="#" class="font-bold text-white hover:text-yellow-300 transition-colors duration-300 mt-6 inline-block mx-auto">Schedule a Tour →</a>
+                <a href="#" class="font-bold text-white hover:text-yellow-300 transition-colors duration-300 mt-6 inline-block self-center">Schedule a Tour →</a>
             </div>
         </div>
     </div>
 </section>
         
 
-        <section id="general-info-section" class="py-20 lg:py-28 bg-white">
+        <!-- Our Impact Section
+        <section id="stats" class="py-20 lg:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal-on-scroll">
+                    <h2 class="text-4xl lg:text-5xl font-bold text-slate-800">Our Impact So Far</h2>
+                    <p class="mt-4 text-lg text-slate-600">Numbers that tell a story of change and hope.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-white">
+                    <div class="bg-orange-500 rounded-2xl p-8 text-center reveal-on-scroll transform hover:-translate-y-2 transition-transform duration-300">
+                        <h3 class="text-7xl font-extrabold counter" data-target="5000">0</h3>
+                        <p class="mt-2 text-sm font-semibold tracking-widest uppercase opacity-90">STUDENTS SERVED</p>
+                    </div>
+                     <div class="bg-blue-500 rounded-2xl p-8 text-center reveal-on-scroll transform hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 150ms;">
+                        <h3 class="text-7xl font-extrabold counter" data-target="250">0</h3>
+                        <p class="mt-2 text-sm font-semibold tracking-widest uppercase opacity-90">CURRENT ENROLLMENT</p>
+                    </div>
+                     <div class="bg-green-500 rounded-2xl p-8 text-center reveal-on-scroll transform hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 300ms;">
+                        <h3 class="text-7xl font-extrabold counter" data-target="39">0</h3>
+                        <p class="mt-2 text-sm font-semibold tracking-widest uppercase opacity-90">YEARS ESTABLISHED</p>
+                    </div>
+                     <div class="bg-red-500 rounded-2xl p-8 text-center reveal-on-scroll transform hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 450ms;">
+                        <h3 class="text-7xl font-extrabold counter" data-target="45">0</h3>
+                        <p class="mt-2 text-sm font-semibold tracking-widest uppercase opacity-90">TEACHERS & STAFF</p>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- General Info Section -->
+<section id="general-info-section" class="py-20 lg:py-28 bg-white">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 reveal-on-scroll">
             <h2 class="text-4xl lg:text-5xl font-bold text-slate-800">Stay Connected</h2>
             <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">Find our calendar and contact details below.</p>
         </div>
         <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <!-- Calendar Placeholder -->
             <div class="reveal-on-scroll">
                 <div class="bg-slate-50 rounded-2xl shadow-xl p-6">
                     <div class="flex items-center justify-between mb-4">
@@ -313,6 +387,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Contact Details -->
             <div class="reveal-on-scroll" style="transition-delay: 150ms;">
                 <div class="bg-slate-50 rounded-2xl shadow-xl p-8 h-full">
                     <h3 class="text-2xl font-bold text-slate-800 mb-6">Get In Touch</h3>
@@ -346,33 +421,35 @@
     </div>
 </section>
 
-        <section id="stats" class="py-20 lg:py-24 bg-teal-600 text-white">
+        <!-- UPDATED: Stats Section -->
+        <section id="stats" class="py-12 lg:py-3 bg-teal-600 text-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12 reveal-on-scroll">
-                    <h2 class="text-4xl lg:text-5xl font-bold">Our Impact So Far</h2>
+                <div class="text-center mb-10 reveal-on-scroll">
+                    <h2 class="text-3xl lg:text-4xl font-bold">Our Impact So Far</h2>
                     <p class="mt-4 text-lg text-teal-100 max-w-2xl mx-auto">Numbers that tell a story of change and hope.</p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="text-center reveal-on-scroll">
-                        <h3 class="text-6xl font-extrabold counter" data-target="5000+">0</h3>
+                        <h3 class="text-5xl font-extrabold counter" data-target="5000+">0</h3>
                         <p class="mt-2 text-base text-teal-200">Students Graduated</p>
                     </div>
                      <div class="text-center reveal-on-scroll" style="transition-delay: 150ms;">
-                        <h3 class="text-6xl font-extrabold counter" data-target="250+">0</h3>
+                        <h3 class="text-5xl font-extrabold counter" data-target="250+">0</h3>
                         <p class="mt-2 text-base text-teal-200">Strengths</p>
                     </div>
                      <div class="text-center reveal-on-scroll" style="transition-delay: 300ms;">
-                        <h3 class="text-6xl font-extrabold counter" data-target="40+">0</h3>
+                        <h3 class="text-5xl font-extrabold counter" data-target="40+">0</h3>
                         <p class="mt-2 text-base text-teal-200">Year's of nurturing kids</p>
                     </div>
                      <div class="text-center reveal-on-scroll" style="transition-delay: 450ms;">
-                        <h3 class="text-6xl font-extrabold counter" data-target="45+">0</h3>
+                        <h3 class="text-5xl font-extrabold counter" data-target="45+">0</h3>
                         <p class="mt-2 text-base text-teal-200">Teachers</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Programs Section -->
         <section id="programs" class="py-20 lg:py-28 bg-sky-50 overflow-hidden">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 reveal-on-scroll">
@@ -381,6 +458,7 @@
                 </div>
                 
                 <div class="reveal-on-scroll">
+                    <!-- Tab Buttons -->
                     <div class="flex justify-center mb-8">
                          <div class="flex space-x-1 bg-white p-2 rounded-full shadow-md overflow-x-auto">
                             <button class="program-tab active flex-shrink-0 px-5 py-2 rounded-full transition-colors text-sm font-semibold" data-program="toddler">Toddlers</button>
@@ -392,6 +470,7 @@
                         </div>
                     </div>
 
+                    <!-- Program Content -->
                     <div>
                         <div id="toddler" class="program-content active">
                             <div class="bg-white rounded-2xl shadow-xl overflow-hidden md:flex min-h-[480px]">
@@ -415,7 +494,7 @@
                         </div>
                         <div id="primary" class="program-content hidden">
                            <div class="bg-white rounded-2xl shadow-xl overflow-hidden md:flex min-h-[480px]">
-                                <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('primary.jpg')"></div>
+                                 <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('primary.jpg')"></div>
                                 <div class="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
                                     <h3 class="text-3xl font-bold text-slate-800 mb-4">Primary <span class="font-normal text-2xl text-slate-500">(Years 3-6)</span></h3>
                                     <p class="text-lg text-slate-600 mb-8">A world of discovery unfolds with hands-on materials for math, language, and science. Children work collaboratively and independently, building a strong academic foundation.</p>
@@ -425,7 +504,7 @@
                         </div>
                         <div id="kindergarten" class="program-content hidden">
                            <div class="bg-white rounded-2xl shadow-xl overflow-hidden md:flex min-h-[480px]">
-                                <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('Kinder\ garten.jpg')"></div>
+                                 <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('Kinder\ garten.jpg')"></div>
                                 <div class="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
                                     <h3 class="text-3xl font-bold text-slate-800 mb-4">Kindergarten <span class="font-normal text-2xl text-slate-500">(Years 5-6)</span></h3>
                                     <p class="text-lg text-slate-600 mb-8">The capstone year! Kindergarteners become leaders and mentors in the classroom, diving deep into projects that solidify their learning and prepare them for elementary school.</p>
@@ -441,8 +520,8 @@
                                    <p class="text-lg text-slate-600 mb-8">Students move from concrete to abstract learning, exploring advanced concepts in math, language, and cultural studies through research and collaborative projects.</p>
                                    <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 transition-colors duration-300">Learn More →</a>
                                </div>
-                            </div>
-                        </div>
+                           </div>
+                       </div>
                        <div id="upper-elementary" class="program-content hidden">
                            <div class="bg-white rounded-2xl shadow-xl overflow-hidden md:flex min-h-[480px]">
                                <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('upper\ elementary.jpg')"></div>
@@ -451,13 +530,14 @@
                                    <p class="text-lg text-slate-600 mb-8">Developing critical thinking and time-management skills, students take on complex, long-term projects and become responsible, self-directed learners.</p>
                                    <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 transition-colors duration-300">Learn More →</a>
                                </div>
-                            </div>
-                        </div>
+                           </div>
+                       </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- UPDATED: Beyond the Classroom Section -->
         <section class="py-20 lg:py-28 bg-white overflow-hidden">
              <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 reveal-on-scroll">
@@ -465,35 +545,51 @@
                     <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">Enrichment activities that spark new passions and talents.</p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Card 1: Art -->
                     <a href="#" class="group relative block h-96 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                         <img src="robotics.jpg" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Child painting">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20"></div>
                         <div class="relative h-full flex flex-col justify-end p-6 text-white">
-                             <h3 class="font-bold text-2xl">Art & Creativity</h3>
+                             <!-- <div class="flex-shrink-0 h-12 w-12 rounded-full bg-white/20 flex items-center justify-center mb-4">
+                                <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zm-7.518-.267A8.25 8.25 0 1120.25 10.5M8.288 14.212A5.25 5.25 0 1117.25 10.5" /></svg>
+                            </div> -->
+                            <h3 class="font-bold text-2xl">Art & Creativity</h3>
                             <p class="mt-1 text-slate-200">Exploring self-expression.</p>
                         </div>
                     </a>
+                    <!-- Card 2: Music -->
                     <a href="#" class="group relative block h-96 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                         <img src="music.png" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Children playing musical instruments">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20"></div>
                         <div class="relative h-full flex flex-col justify-end p-6 text-white">
+                            <!-- <div class="flex-shrink-0 h-12 w-12 rounded-full bg-white/20 flex items-center justify-center mb-4">
+                                 <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V7.5A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.75m0 0l-1.096 1.096a2.25 2.25 0 00-1.632 2.163v3.75a2.25 2.25 0 001.632 2.163l1.32.377a1.803 1.803 0 00.99-3.467l-2.31-.66a2.25 2.25 0 01-1.632-2.163z" /></svg>
+                            </div> -->
                             <h3 class="font-bold text-2xl">Music & Movement</h3>
                             <p class="mt-1 text-slate-200">Discovering rhythm and song.</p>
                         </div>
                     </a>
-                    <a href="#" class="group relative block h-96 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                    <!-- Card 3: Spanish -->
+                     <a href="#" class="group relative block h-96 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                         <img src="lang.png" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Spanish language learning tools">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20"></div>
                         <div class="relative h-full flex flex-col justify-end p-6 text-white">
+                            <!-- <div class="flex-shrink-0 h-12 w-12 rounded-full bg-white/20 flex items-center justify-center mb-4">
+                                <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" /></svg>
+                            </div> -->
                             <h3 class="font-bold text-2xl">Languages</h3>
                             <p class="mt-1 text-slate-200">Building a bilingual foundation.</p>
                         </div>
                     </a>
-                    <a href="#" class="group relative block h-96 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                    <!-- Card 4: Nature -->
+                     <a href="#" class="group relative block h-96 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                         <img src="spring day.jpg" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Child examining a leaf with a magnifying glass">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20"></div>
                         <div class="relative h-full flex flex-col justify-end p-6 text-white">
-                             <h3 class="font-bold text-2xl">Gardening & Nature</h3>
+                             <!-- <div class="flex-shrink-0 h-12 w-12 rounded-full bg-white/20 flex items-center justify-center mb-4">
+                                <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9" /></svg>
+                            </div> -->
+                            <h3 class="font-bold text-2xl">Gardening & Nature</h3>
                             <p class="mt-1 text-slate-200">Connecting with the natural world.</p>
                         </div>
                     </a>
@@ -501,6 +597,7 @@
             </div>
         </section>
         
+        <!-- UPDATED: Events Section -->
         <section id="events" class="py-20 lg:py-28 bg-blue-600">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 reveal-on-scroll">
@@ -515,17 +612,20 @@
                 </div>
 
                 <div class="relative min-h-[450px]">
+                    <!-- Upcoming Events -->
                     <div id="upcoming-events" class="event-content active reveal-on-scroll">
                         <div class="bg-blue-500/50 rounded-2xl p-8 max-w-4xl mx-auto text-center text-white">
-                            <h3 class="text-3xl font-bold">Stay Tuned!</h3>
-                            <p class="mt-2 text-lg text-blue-100">Our official events calendar is coming soon. Please check back for updates on school activities, open houses, and more.</p>
+                            <iframe src="https://calendar.google.com/calendar/embed?src=reston.montessori.school%40gmail.com&ctz=America%2FNew_York" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no" class="w-full h-full min-h-[550px]"></iframe>
+                            <!-- <p class="mt-2 text-lg text-blue-100">Our official events calendar is coming soon. Please check back for updates on school activities, open houses, and more.</p> -->
                              <a href="#" class="mt-6 inline-block bg-white text-blue-600 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-slate-100 transition-colors">View Full Calendar</a>
                         </div>
                     </div>
 
+                    <!-- Past Events Gallery -->
                     <div id="past-events" class="event-content hidden absolute w-full top-0">
                          <div class="max-w-4xl mx-auto relative">
                              <div id="past-event-slider" class="relative rounded-2xl overflow-hidden shadow-2xl h-[500px]">
+                                <!-- Past Event Slide 1 -->
                                 <div class="school-event-slide absolute inset-0 opacity-100">
                                     <div class="absolute inset-0 ken-burns-bg" style="background-image: url('Games.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center;"></div>
                                     <div class="absolute inset-0 bg-black/40"></div>
@@ -538,7 +638,8 @@
                                         <p class="mt-1 text-blue-100 max-w-lg">We had a wonderful day of games, food, and fun for the whole family!</p>
                                     </div>
                                 </div>
-                                <div class="school-event-slide absolute inset-0 opacity-0">
+                                <!-- Past Event Slide 2 -->
+                                 <div class="school-event-slide absolute inset-0 opacity-0">
                                     <div class="absolute inset-0 ken-burns-bg" style="background-image: url('peace\ day.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center;"></div>
                                     <div class="absolute inset-0 bg-black/40"></div>
                                     <div class="relative p-8 md:p-12 flex flex-col justify-end h-full text-white">
@@ -550,6 +651,7 @@
                                         <p class="mt-1 text-blue-100 max-w-lg">A celebration of cultures from around the world represented in our school.</p>
                                     </div>
                                 </div>
+                                <!-- Past Event Slide 3 -->
                                 <div class="school-event-slide absolute inset-0 opacity-0">
                                     <div class="absolute inset-0 ken-burns-bg" style="background-image: url('robotics.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center;"></div>
                                     <div class="absolute inset-0 bg-black/40"></div>
@@ -575,6 +677,7 @@
             </div>
         </section>
 
+        <!-- Testimonials -->
         <section class="py-20 lg:py-28 overflow-hidden bg-slate-50">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 reveal-on-scroll">
@@ -584,8 +687,10 @@
 
                 <div class="relative max-w-3xl mx-auto">
                     <div id="testimonial-slider" class="relative min-h-[350px]">
-                        <div class="testimonial-slide absolute top-0 left-0 w-full opacity-100 transition-opacity duration-500">
+                        <!-- Testimonial Slides -->
+                         <div class="testimonial-slide absolute top-0 left-0 w-full opacity-100 transition-opacity duration-500">
                              <div class="bg-white p-8 rounded-2xl shadow-xl text-center">
+                                <!-- <svg class="h-12 w-12 text-blue-200 mx-auto mb-4" fill="currentColor" viewBox="0 0 32 32"><path d="M9.333 7C6.4 7 4 9.4 4 12.333v10C4 25.267 6.4 27.667 9.333 27.667h6.334C18.6 27.667 21 25.267 21 22.333V18.5h-4.667v-2.167h4.667v-2.5c0-3.433-2.6-6.166-5.667-6.166H9.333zM25.333 7c-2.933 0-5.333 2.4-5.333 5.333v10c0 2.933 2.4 5.334 5.333 5.334h6.334C34.6 27.667 37 25.267 37 22.333V18.5h-4.667v-2.167h4.667v-2.5c0-3.433-2.6-6.166-5.667-6.166h-6.333z"></path></svg> -->
                                 <img class="w-24 h-24 rounded-full mx-auto mb-6 ring-4 ring-white shadow-lg" src="https://placehold.co/100x100/e0e7ff/4338ca?text=JD" alt="Parent Jane D.">
                                 <blockquote class="text-xl lg:text-2xl font-medium text-slate-700 mb-4">"This school is magical. Our daughter has blossomed here, gaining confidence and a true love for learning. The teachers are incredibly caring and attentive."</blockquote>
                                 <cite class="not-italic font-bold text-slate-800">Jane D.</cite>
@@ -593,19 +698,22 @@
                         </div>
                          <div class="testimonial-slide absolute top-0 left-0 w-full opacity-0 transition-opacity duration-500">
                             <div class="bg-white p-8 rounded-2xl shadow-xl text-center">
-                                 <img class="w-24 h-24 rounded-full mx-auto mb-6 ring-4 ring-white shadow-lg" src="https://placehold.co/100x100/d1fae5/047857?text=MS" alt="Parent Mark S.">
+                                 <!-- <svg class="h-12 w-12 text-blue-200 mx-auto mb-4" fill="currentColor" viewBox="0 0 32 32"><path d="M9.333 7C6.4 7 4 9.4 4 12.333v10C4 25.267 6.4 27.667 9.333 27.667h6.334C18.6 27.667 21 25.267 21 22.333V18.5h-4.667v-2.167h4.667v-2.5c0-3.433-2.6-6.166-5.667-6.166H9.333zM25.333 7c-2.933 0-5.333 2.4-5.333 5.333v10c0 2.933 2.4 5.334 5.333 5.334h6.334C34.6 27.667 37 25.267 37 22.333V18.5h-4.667v-2.167h4.667v-2.5c0-3.433-2.6-6.166-5.667-6.166h-6.333z"></path></svg> -->
+                                <img class="w-24 h-24 rounded-full mx-auto mb-6 ring-4 ring-white shadow-lg" src="https://placehold.co/100x100/d1fae5/047857?text=MS" alt="Parent Mark S.">
                                 <blockquote class="text-xl lg:text-2xl font-medium text-slate-700 mb-4">"The sense of community is amazing. We feel so connected to the other families and the staff. It's more than a school; it's a family."</blockquote>
                                 <cite class="not-italic font-bold text-slate-800">Mark S.</cite>
                             </div>
                         </div>
                          <div class="testimonial-slide absolute top-0 left-0 w-full opacity-0 transition-opacity duration-500">
                              <div class="bg-white p-8 rounded-2xl shadow-xl text-center">
-                                 <img class="w-24 h-24 rounded-full mx-auto mb-6 ring-4 ring-white shadow-lg" src="https://placehold.co/100x100/fee2e2/991b1b?text=SL" alt="Parent Sarah L.">
+                                 <!-- <svg class="h-12 w-12 text-blue-200 mx-auto mb-4" fill="currentColor" viewBox="0 0 32 32"><path d="M9.333 7C6.4 7 4 9.4 4 12.333v10C4 25.267 6.4 27.667 9.333 27.667h6.334C18.6 27.667 21 25.267 21 22.333V18.5h-4.667v-2.167h4.667v-2.5c0-3.433-2.6-6.166-5.667-6.166H9.333zM25.333 7c-2.933 0-5.333 2.4-5.333 5.333v10c0 2.933 2.4 5.334 5.333 5.334h6.334C34.6 27.667 37 25.267 37 22.333V18.5h-4.667v-2.167h4.667v-2.5c0-3.433-2.6-6.166-5.667-6.166h-6.333z"></path></svg> -->
+                                <img class="w-24 h-24 rounded-full mx-auto mb-6 ring-4 ring-white shadow-lg" src="https://placehold.co/100x100/fee2e2/991b1b?text=SL" alt="Parent Sarah L.">
                                 <blockquote class="text-xl lg:text-2xl font-medium text-slate-700 mb-4">"I'm so impressed by the Montessori approach in action. My son is learning so much, but to him, he's just playing. It's the best of both worlds."</blockquote>
                                 <cite class="not-italic font-bold text-slate-800">Sarah L.</cite>
                             </div>
                         </div>
                     </div>
+                    <!-- Testimonial Navigation Dots -->
                     <div id="testimonial-dots" class="flex justify-center space-x-3 mt-8"></div>
                 </div>
             </div>
@@ -636,18 +744,22 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer id="contact" class="bg-slate-800 text-slate-300">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- About -->
                 <div class="md:col-span-2 lg:col-span-1 reveal-on-scroll">
                     <h3 class="text-lg font-semibold text-white mb-4">Reston Montessori School</h3>
+                    <!-- FIX: Corrected establishment year to be consistent -->
                     <p class="text-sm">Fostering curiosity, creativity, and compassion in young learners since 1986.</p>
                      <div class="flex space-x-4 mt-6">
                         <a href="#" class="text-slate-400 hover:text-white transition-colors"><span class="sr-only">Facebook</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
                         <a href="#" class="text-slate-400 hover:text-white transition-colors"><span class="sr-only">X</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
-                        <a href="#" class="text-slate-400 hover:text-white transition-colors"><span class="sr-only">Instagram</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 012.792 2.792c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-2.792 2.792c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-2.792-2.792c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465 2.427a4.902 4.902 0 012.792-2.792c.636-.247 1.363.416 2.427.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm5.25-9.75a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z" clip-rule="evenodd" /></svg></a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors"><span class="sr-only">Instagram</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 012.792 2.792c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-2.792 2.792c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-2.792-2.792c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 012.792-2.792c.636-.247 1.363.416 2.427.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm5.25-9.75a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z" clip-rule="evenodd" /></svg></a>
                      </div>
                 </div>
+                <!-- Quick Links -->
                 <div class="reveal-on-scroll" style="transition-delay: 150ms;">
                     <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
                     <ul class="space-y-2 text-sm">
@@ -657,6 +769,7 @@
                         <li><a href="#" class="hover:text-white transition-colors">FAQs</a></li>
                     </ul>
                 </div>
+                <!-- Contact Info -->
                 <div class="reveal-on-scroll" style="transition-delay: 300ms;">
                      <h3 class="text-lg font-semibold text-white mb-4">Get In Touch</h3>
                      <ul class="space-y-3 text-sm">
@@ -675,6 +788,7 @@
                          </li>
                      </ul>
                 </div>
+                <!-- Map -->
                 <div class="reveal-on-scroll" style="transition-delay: 450ms;">
                      <h3 class="text-lg font-semibold text-white mb-4">Our Location</h3>
                      <div class="aspect-video">
@@ -684,21 +798,25 @@
             </div>
             <div class="mt-16 pt-8 border-t border-slate-700 text-center text-sm text-slate-400">
                 <p>Designed by Nagasai Kakani</p>
-                <p>© <span id="copyright-year"></span> Reston Montessori School. All Rights Reserved.</p>
+                <p>&copy; <span id="copyright-year"></span> Reston Montessori School. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
 
 
-    <div class="fixed top-1/2 right-0 -translate-y-1/2 z-30">
+   <!-- Side Tab -->
+<!-- Side Tab -->
+<div class="fixed top-1/2 right-0 -translate-y-1/2 z-30">
     <button id="info-tab-button" class="vertical-text-tab bg-amber-500 text-white font-semibold px-2 py-4 rounded-l-md shadow-lg hover:bg-amber-600 transition-colors duration-300">
         General Info
     </button>
 </div>
 
+<!-- Page Overlay -->
 <div id="page-overlay" class="fixed inset-0 bg-black/60 z-40 hidden opacity-0 transition-opacity duration-300 ease-in-out"></div>
 
+<!-- General Info Side Panel -->
 <div id="general-info-panel" class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
     <div class="p-6 h-full flex flex-col">
         <div class="flex justify-between items-center mb-6">
@@ -711,6 +829,7 @@
             </button>
         </div>
         <div class="overflow-y-auto flex-grow">
+            <!-- Contact Info -->
             <div>
                 <h3 class="text-lg font-semibold text-slate-700 mb-4 border-b pb-2">Get In Touch</h3>
                 <ul class="space-y-4 text-sm text-slate-600">
@@ -728,6 +847,7 @@
                     </li>
                 </ul>
             </div>
+            <!-- Quick Links -->
             <div class="mt-8">
                 <h3 class="text-lg font-semibold text-slate-700 mb-4 border-b pb-2">Quick Links</h3>
                 <ul class="space-y-3 text-sm">
@@ -802,27 +922,50 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Programs Section Logic ---
-    const programTabs = document.querySelectorAll('.program-tab');
-    const programContents = document.querySelectorAll('.program-content');
+    const programSection = document.getElementById('programs');
+    const programTabs = programSection.querySelectorAll('.program-tab');
+    const programContents = programSection.querySelectorAll('.program-content');
+    let programInterval;
+    let currentProgramIndex = 0;
 
-    programTabs.forEach(tab => {
+    const switchProgramTab = (index) => {
+        const tabToActivate = programTabs[index];
+        if (!tabToActivate) return;
+        
+        const programId = tabToActivate.dataset.program;
+
+        programTabs.forEach(t => t.classList.remove('active'));
+        tabToActivate.classList.add('active');
+
+        programContents.forEach(content => {
+            content.classList.toggle('hidden', content.id !== programId);
+            content.classList.toggle('active', content.id === programId);
+        });
+        currentProgramIndex = index;
+    };
+
+    const stopProgramAutoplay = () => {
+        clearInterval(programInterval);
+    };
+
+    programTabs.forEach((tab, index) => {
         tab.addEventListener('click', () => {
-            const programId = tab.dataset.program;
-
-            programTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-
-            programContents.forEach(content => {
-                if (content.id === programId) {
-                    content.classList.remove('hidden');
-                    content.classList.add('active');
-                } else {
-                    content.classList.add('hidden');
-                    content.classList.remove('active');
-                }
-            });
+            stopProgramAutoplay();
+            switchProgramTab(index);
         });
     });
+
+    const startProgramAutoplay = () => {
+        stopProgramAutoplay();
+        programInterval = setInterval(() => {
+            const nextIndex = (currentProgramIndex + 1) % programTabs.length;
+            switchProgramTab(nextIndex);
+        }, 5000);
+    };
+
+    if (programTabs.length > 0) {
+        startProgramAutoplay();
+    }
 
     // --- Events Section Logic ---
     const eventTabs = document.querySelectorAll('.event-tab');
@@ -948,6 +1091,45 @@ document.addEventListener('DOMContentLoaded', () => {
         dotsContainerId: 'testimonial-dots'
     });
     
+    // --- General Info Side Panel Logic ---
+    const infoTabButton = document.getElementById('info-tab-button');
+    const generalInfoPanel = document.getElementById('general-info-panel');
+    const closeInfoPanelButton = document.getElementById('close-info-panel');
+    const pageOverlay = document.getElementById('page-overlay');
+    const panelLinks = document.querySelectorAll('.close-panel-link');
+
+    const openPanel = () => {
+        if (!generalInfoPanel || !pageOverlay) return;
+        pageOverlay.classList.remove('hidden');
+        requestAnimationFrame(() => { // Use rAF for smoother transition start
+            generalInfoPanel.classList.remove('translate-x-full');
+            pageOverlay.classList.remove('opacity-0');
+        });
+        document.body.classList.add('overflow-hidden');
+    };
+
+    const closePanel = () => {
+        if (!generalInfoPanel || !pageOverlay) return;
+        generalInfoPanel.classList.add('translate-x-full');
+        pageOverlay.classList.add('opacity-0');
+        pageOverlay.addEventListener('transitionend', () => {
+            pageOverlay.classList.add('hidden');
+        }, { once: true });
+        document.body.classList.remove('overflow-hidden');
+    };
+
+    if (infoTabButton) infoTabButton.addEventListener('click', openPanel);
+    if (closeInfoPanelButton) closeInfoPanelButton.addEventListener('click', closePanel);
+    if (pageOverlay) pageOverlay.addEventListener('click', closePanel);
+    panelLinks.forEach(link => link.addEventListener('click', closePanel));
+
+    // Close panel with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !generalInfoPanel.classList.contains('translate-x-full')) {
+            closePanel();
+        }
+    });
+
     // --- Scroll Animations & Counters ---
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -955,12 +1137,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 entry.target.classList.add('visible');
                 // Animate counter if it's a counter element
                 if (entry.target.classList.contains('counter')) {
-                    const targetAttr = entry.target.getAttribute('data-target');
-                    const target = parseInt(targetAttr.replace(/[^0-9]/g, ''), 10);
-
+                    const target = parseInt(entry.target.getAttribute('data-target'), 10);
                     if (isNaN(target)) return;
                     
-                    const displaySuffix = targetAttr.includes('+') ? '+' : '';
+                    const displaySuffix = entry.target.dataset.target.includes('+') ? '+' : '';
 
                     let current = 0;
                     const duration = 2000;
@@ -995,39 +1175,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if(yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
-
-    // --- **FIX STARTS HERE**: General Info Side Panel Logic ---
-    const infoTabButton = document.getElementById('info-tab-button');
-    const generalInfoPanel = document.getElementById('general-info-panel');
-    const closeInfoPanelButton = document.getElementById('close-info-panel');
-    const pageOverlay = document.getElementById('page-overlay');
-    const panelLinks = document.querySelectorAll('.close-panel-link');
-
-    const openPanel = () => {
-        pageOverlay.classList.remove('hidden');
-        requestAnimationFrame(() => {
-            generalInfoPanel.classList.remove('translate-x-full');
-            pageOverlay.classList.remove('opacity-0');
-        });
-    };
-
-    const closePanel = () => {
-        generalInfoPanel.classList.add('translate-x-full');
-        pageOverlay.classList.add('opacity-0');
-        // Wait for the transition to finish before hiding the overlay
-        pageOverlay.addEventListener('transitionend', () => {
-            pageOverlay.classList.add('hidden');
-        }, { once: true });
-    };
-
-    infoTabButton.addEventListener('click', openPanel);
-    closeInfoPanelButton.addEventListener('click', closePanel);
-    pageOverlay.addEventListener('click', closePanel);
-    
-    panelLinks.forEach(link => {
-        link.addEventListener('click', closePanel);
-    });
-    // --- **FIX ENDS HERE** ---
 });
 </script>
 
