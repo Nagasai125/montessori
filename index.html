@@ -192,15 +192,27 @@
                             <a href="#contact" class="font-bold text-white hover:text-blue-300 transition-colors duration-300">Contact us</a>
                         </nav>
 
-                        <!-- CTA Button -->
-                        <div class="flex items-center space-x-3">
-                            <a href="#" class="inline-block bg-amber-500 text-white font-semibold px-5 py-3 rounded-full shadow-md hover:bg-amber-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
-                                Schedule Tour
-                            </a>
-                            <div id="tour-icon-wrapper" class="p-2 bg-white/20 rounded-full transition-all duration-300 cursor-pointer hover:scale-110 hover:bg-white/40">
-                                <svg id="desktop-tour-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-6 h-6 text-white transition-colors duration-300" viewBox="0 0 16 16">
-                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-                                </svg>
+                        <!-- CTA Button and Calendar Dropdown Wrapper -->
+                        <div class="relative">
+                            <div class="flex items-center space-x-3">
+                                <a href="#" class="inline-block bg-amber-500 text-white font-semibold px-5 py-3 rounded-full shadow-md hover:bg-amber-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                                    Schedule Tour
+                                </a>
+                                <div id="tour-icon-wrapper" class="p-2 bg-white/20 rounded-full transition-all duration-300 cursor-pointer hover:scale-110 hover:bg-white/40">
+                                    <svg id="desktop-tour-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-6 h-6 text-white transition-colors duration-300" viewBox="0 0 16 16">
+                                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <!-- Calendar Dropdown -->
+                            <div id="calendar-dropdown" class="hidden absolute top-full right-0 mt-4 z-40 w-full min-w-[300px] sm:min-w-[400px] md:min-w-[500px]">
+                                <div class="relative">
+                                    <div class="absolute right-4 -top-2 h-4 w-4 bg-white transform rotate-45"></div>
+                                    <div class="bg-white rounded-2xl shadow-2xl overflow-hidden p-2">
+                                        <iframe src="https://calendar.google.com/calendar/embed?src=reston.montessori.school%40gmail.com&ctz=America%2FNew_York" style="border: 0" width="100%" height="400" frameborder="0" scrolling="no"></iframe>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -241,13 +253,6 @@
             </div>
         </div>
     </header>
-    
-    <!-- Calendar Dropdown -->
-    <div id="calendar-dropdown" class="hidden absolute top-24 right-4 sm:right-6 lg:right-8 z-40 w-full max-w-md md:max-w-lg lg:max-w-xl">
-        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden p-2">
-            <iframe src="https://calendar.google.com/calendar/embed?src=reston.montessori.school%40gmail.com&ctz=America%2FNew_York" style="border: 0" width="100%" height="400" frameborder="0" scrolling="no"></iframe>
-        </div>
-    </div>
 
     <main>
         <!-- Hero Section -->
