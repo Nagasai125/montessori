@@ -405,7 +405,7 @@
         
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
                 <div class="text-center mb-16 reveal-on-scroll slide-up">
-                    <h2 class="text-4xl lg:text-5xl font-bold text-slate-800">Our Playful Programs</h2>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-slate-800">Our Programs</h2>
                     <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">Adventures in learning designed for every stage of early childhood.</p>
                 </div>
                 
@@ -737,11 +737,11 @@
 
 
     <!-- Side Tab -->
-<div class="fixed top-1/2 right-0 -translate-y-1/2 z-30">
+<!-- <div class="fixed top-1/2 right-0 -translate-y-1/2 z-30">
     <button id="info-tab-button" class="vertical-text-tab bg-amber-500 text-white font-semibold px-2 py-4 rounded-l-md shadow-lg hover:bg-amber-600 transition-colors duration-300">
         General Info
     </button>
-</div>
+</div> -->
 
 <!-- Page Overlay -->
 <div id="page-overlay" class="fixed inset-0 bg-black/60 z-40 hidden opacity-0 transition-opacity duration-300 ease-in-out"></div>
@@ -1086,49 +1086,49 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     // --- General Info Side Panel Logic ---
-    const infoTabButton = document.getElementById('info-tab-button');
-    const openInfoPanelTopButton = document.getElementById('open-info-panel-top');
-    const openInfoPanelMobileButton = document.getElementById('open-info-panel-mobile'); // New button
-    const generalInfoPanel = document.getElementById('general-info-panel');
-    const closeInfoPanelButton = document.getElementById('close-info-panel');
-    const pageOverlay = document.getElementById('page-overlay');
-    const panelLinks = document.querySelectorAll('.close-panel-link');
+    // const infoTabButton = document.getElementById('info-tab-button');
+    // const openInfoPanelTopButton = document.getElementById('open-info-panel-top');
+    // const openInfoPanelMobileButton = document.getElementById('open-info-panel-mobile'); // New button
+    // const generalInfoPanel = document.getElementById('general-info-panel');
+    // const closeInfoPanelButton = document.getElementById('close-info-panel');
+    // const pageOverlay = document.getElementById('page-overlay');
+    // const panelLinks = document.querySelectorAll('.close-panel-link');
 
-    const openPanel = () => {
-        if (!generalInfoPanel || !pageOverlay) return;
-        pageOverlay.classList.remove('hidden');
-        requestAnimationFrame(() => { // Use rAF for smoother transition start
-            generalInfoPanel.classList.remove('translate-x-full');
-            pageOverlay.classList.remove('opacity-0');
-        });
-        document.body.classList.add('overflow-hidden');
-         // Close mobile menu if it's open
-        mobileMenu.classList.add('hidden'); 
-    };
+    // const openPanel = () => {
+    //     if (!generalInfoPanel || !pageOverlay) return;
+    //     pageOverlay.classList.remove('hidden');
+    //     requestAnimationFrame(() => { // Use rAF for smoother transition start
+    //         generalInfoPanel.classList.remove('translate-x-full');
+    //         pageOverlay.classList.remove('opacity-0');
+    //     });
+    //     document.body.classList.add('overflow-hidden');
+    //      // Close mobile menu if it's open
+    //     mobileMenu.classList.add('hidden'); 
+    // };
 
-    const closePanel = () => {
-        if (!generalInfoPanel || !pageOverlay) return;
-        generalInfoPanel.classList.add('translate-x-full');
-        pageOverlay.classList.add('opacity-0');
-        pageOverlay.addEventListener('transitionend', () => {
-            pageOverlay.classList.add('hidden');
-        }, { once: true });
-        document.body.classList.remove('overflow-hidden');
-    };
+    // const closePanel = () => {
+    //     if (!generalInfoPanel || !pageOverlay) return;
+    //     generalInfoPanel.classList.add('translate-x-full');
+    //     pageOverlay.classList.add('opacity-0');
+    //     pageOverlay.addEventListener('transitionend', () => {
+    //         pageOverlay.classList.add('hidden');
+    //     }, { once: true });
+    //     document.body.classList.remove('overflow-hidden');
+    // };
 
-    if (infoTabButton) infoTabButton.addEventListener('click', openPanel);
-    if (openInfoPanelTopButton) openInfoPanelTopButton.addEventListener('click', openPanel);
-    if (openInfoPanelMobileButton) openInfoPanelMobileButton.addEventListener('click', openPanel); // Add event listener for new button
-    if (closeInfoPanelButton) closeInfoPanelButton.addEventListener('click', closePanel);
-    if (pageOverlay) pageOverlay.addEventListener('click', closePanel);
-    panelLinks.forEach(link => link.addEventListener('click', closePanel));
+    // if (infoTabButton) infoTabButton.addEventListener('click', openPanel);
+    // if (openInfoPanelTopButton) openInfoPanelTopButton.addEventListener('click', openPanel);
+    // if (openInfoPanelMobileButton) openInfoPanelMobileButton.addEventListener('click', openPanel); // Add event listener for new button
+    // if (closeInfoPanelButton) closeInfoPanelButton.addEventListener('click', closePanel);
+    // if (pageOverlay) pageOverlay.addEventListener('click', closePanel);
+    // panelLinks.forEach(link => link.addEventListener('click', closePanel));
 
-    // Close panel with Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !generalInfoPanel.classList.contains('translate-x-full')) {
-            closePanel();
-        }
-    });
+    // // Close panel with Escape key
+    // document.addEventListener('keydown', (e) => {
+    //     if (e.key === 'Escape' && !generalInfoPanel.classList.contains('translate-x-full')) {
+    //         closePanel();
+    //     }
+    // });
 
     // --- Scroll Animations & Counters ---
     const scrollObserver = new IntersectionObserver((entries, observer) => {
