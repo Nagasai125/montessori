@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reston Montessori School</title>
     
     <!-- Tailwind CSS -->
@@ -89,7 +89,7 @@
             animation: slideInUp 0.8s ease-out forwards;
         }
 
-        .program-content.active, .event-content.active {
+        .program-content-desktop.active, .event-content.active {
             animation: fadeIn 0.5s ease-in-out forwards;
         }
         
@@ -159,27 +159,65 @@
              box-shadow: 0 15px 30px -5px rgba(0,0,0,0.15);
         }
 
+        /* --- Carousel Fade Effect --- */
+        #enrichment-carousel-wrapper {
+            -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+        }
+
+        /* --- Carousel Button Highlighting --- */
+        #enrichment-prev,
+        #enrichment-next {
+            background-color: rgba(59, 130, 246, 0.75); /* blue-500 with transparency */
+            color: white;
+            transition: all 0.3s ease-in-out;
+        }
+
+        #enrichment-prev:hover,
+        #enrichment-next:hover {
+            background-color: #2563eb; /* blue-600 */
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+        }
+
+        .program-accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        
+        .program-accordion-trigger.active-accordion + .program-accordion-content {
+             max-height: 1000px; /* Adjust as needed for content */
+        }
+        
+        .program-accordion-trigger.active-accordion {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .program-accordion-trigger.active-accordion svg {
+            transform: rotate(180deg);
+        }
+
     </style>
 </head>
 <body class="bg-stone-50 text-slate-700">
 
     <!-- Header Section -->
-    <header id="main-header" class="fixed top-0 z-50 w-full">
+    <header id="main-header" class="fixed top-0 z-50 w-full transition-all duration-300">
         <!-- Top information bar -->
         <div id="top-info-bar" class="text-white transition-colors duration-300">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-center md:justify-between h-10 text-sm">
-                    <!-- Left side navigation -->
-                    <nav class="hidden md:flex items-center space-x-6">
+                <!-- Desktop Top Bar -->
+                <div class="hidden md:flex items-center justify-between h-10 text-sm">
+                    <nav class="flex items-center space-x-6">
                         <a href="#" class="hover:text-amber-300 transition-colors">MMUN</a>
                         <a href="#" class="hover:text-amber-300 transition-colors">PTA</a>
                         <a href="#events" class="hover:text-amber-300 transition-colors">Calendar</a>
                         <a href="#events" class="hover:text-amber-300 transition-colors">School Events</a>
                         <a href="#" id="open-info-panel-top" class="hover:text-amber-300 transition-colors">General Info</a>
                     </nav>
-                    <!-- Right side content: Location, Phone, and Social Media -->
                     <div class="flex items-center space-x-4">
-                        <a href="https://www.google.com/maps/search/?api=1&query=1765+Business+Center+Dr,Reston,VA+20190" target="_blank" rel="noopener noreferrer" class="hidden md:flex items-center font-semibold hover:text-amber-300 transition-colors">
+                        <a href="https://www.google.com/maps/search/?api=1&query=1765+Business+Center+Dr,Reston,VA+20190" target="_blank" rel="noopener noreferrer" class="flex items-center font-semibold hover:text-amber-300 transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="mr-2 text-blue-400" viewBox="0 0 16 16">
                                 <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
                             </svg>
@@ -191,20 +229,27 @@
                             </svg>
                             <span>703-481-2922</span>
                         </a>
-                        <!-- Social Media Icons (hidden on mobile) -->
-                        <div class="hidden md:flex items-center space-x-4">
-                            <a href="#" class="text-white hover:text-amber-300 transition-colors"><span class="sr-only">Facebook</span><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
-                            <a href="#" class="text-white hover:text-amber-300 transition-colors"><span class="sr-only">X</span><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
-                            <a href="#" class="text-white hover:text-amber-300 transition-colors"><span class="sr-only">Instagram</span><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 012.792 2.792c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-2.792 2.792c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-2.792-2.792c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218 1.791.465 2.427a4.902 4.902 0 012.792-2.792c.636-.247 1.363.416 2.427.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm5.25-9.75a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z" clip-rule="evenodd" /></svg></a>
-                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Top Bar -->
+                <div class="md:hidden flex items-center justify-between h-12">
+                    <div class="flex items-center space-x-3">
+                        <a href="https://www.google.com/maps/search/?api=1&query=1765+Business+Center+Dr,Reston,VA+20190" target="_blank" rel="noopener noreferrer"><span class="sr-only">Location</span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-white" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg></a>
+                        <a href="tel:703-481-2922"><span class="sr-only">Call</span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-white" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg></a>
+                        <a href="mailto:info@restonmontessori.com"><span class="sr-only">Email</span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-white" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg></a>
+                    </div>
+                    <div>
+                        <a href="#" class="bg-amber-500 text-white font-semibold px-3 py-2 rounded-full text-xs">Schedule Tour</a>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <a href="#" class="text-white"><span class="sr-only">Facebook</span><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
+                        <a href="#" class="text-white"><span class="sr-only">X</span><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+                        <a href="#" class="text-white"><span class="sr-only">Instagram</span><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 012.792 2.792c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-2.792 2.792c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-2.792-2.792c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218 1.791.465 2.427a4.902 4.902 0 012.792-2.792c.636-.247 1.363.416 2.427.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm5.25-9.75a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z" clip-rule="evenodd" /></svg></a>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- Divider line -->
-        <div id="header-divider" class="container mx-auto border-b border-white/20 transition-opacity duration-300"></div>
-
         <!-- Main Navigation Bar -->
         <div id="main-nav-bar" class="relative transition-all duration-300">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -276,24 +321,24 @@
             </div>
              <div class="py-4 border-t border-slate-100">
                   <div class="px-2 space-y-1 sm:px-3">
-                     <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">MMUN</a>
-                     <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">PTA</a>
-                     <a href="#events" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">Calendar</a>
-                     <a href="#events" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">School Events</a>
-                     <a href="#" id="open-info-panel-mobile" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">General Info</a>
+                       <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">MMUN</a>
+                       <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">PTA</a>
+                       <a href="#events" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">Calendar</a>
+                       <a href="#events" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">School Events</a>
+                       <a href="#" id="open-info-panel-mobile" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">General Info</a>
                   </div>
              </div>
              <div class="p-4 border-t border-slate-100">
-                 <div class="flex items-center justify-center space-x-3">
-                     <a href="#" class="inline-block bg-amber-500 text-white font-semibold px-5 py-3 rounded-full shadow-md hover:bg-amber-600 transition-all">
-                         Schedule Tour
-                     </a>
-                     <div id="mobile-tour-icon-wrapper" class="p-2 bg-slate-100 rounded-full hover:bg-slate-200 transition-colors">
-                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-6 h-6 text-slate-700" viewBox="0 0 16 16">
-                             <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-                         </svg>
-                     </div>
-                 </div>
+                  <div class="flex items-center justify-center space-x-3">
+                       <a href="#" class="inline-block bg-amber-500 text-white font-semibold px-5 py-3 rounded-full shadow-md hover:bg-amber-600 transition-all">
+                             Schedule Tour
+                       </a>
+                       <div id="mobile-tour-icon-wrapper" class="p-2 bg-slate-100 rounded-full hover:bg-slate-200 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-6 h-6 text-slate-700" viewBox="0 0 16 16">
+                                 <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                            </svg>
+                       </div>
+                  </div>
              </div>
         </div>
     </header>
@@ -405,109 +450,210 @@
         
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
                 <div class="text-center mb-16 reveal-on-scroll slide-up">
-                    <h2 class="text-4xl lg:text-5xl font-bold text-slate-800">Our Programs</h2>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-slate-800">Our Playful Programs</h2>
                     <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">Adventures in learning designed for every stage of early childhood.</p>
                 </div>
                 
                 <div class="reveal-on-scroll fade-in">
-                    <!-- Tab Buttons -->
-                    <div class="flex justify-center mb-8">
-                         <div class="flex space-x-1 bg-white p-2 rounded-full shadow-md overflow-x-auto">
-                             <button class="program-tab active flex-shrink-0 px-5 py-2 rounded-full transition-colors text-sm font-semibold" data-program="toddler">Toddlers</button>
-                             <button class="program-tab flex-shrink-0 px-5 py-2 rounded-full transition-colors text-sm font-semibold" data-program="pre-primary">Pre-Primary</button>
-                             <button class="program-tab flex-shrink-0 px-5 py-2 rounded-full transition-colors text-sm font-semibold" data-program="primary">Primary</button>
-                             <button class="program-tab flex-shrink-0 px-5 py-2 rounded-full transition-colors text-sm font-semibold" data-program="kindergarten">Kindergarten</button>
-                             <button class="program-tab flex-shrink-0 px-5 py-2 rounded-full transition-colors text-sm font-semibold" data-program="lower-elementary">Lower Elementary</button>
-                             <button class="program-tab flex-shrink-0 px-5 py-2 rounded-full transition-colors text-sm font-semibold" data-program="upper-elementary">Upper Elementary</button>
-                         </div>
+                    <!-- Desktop View -->
+                    <div class="hidden md:block">
+                        <!-- Tab Buttons -->
+                        <div class="flex justify-center mb-8">
+                            <div class="flex space-x-1 bg-white p-2 rounded-full shadow-md">
+                                <button class="program-tab active flex-shrink-0 px-5 py-2 rounded-full transition-colors text-sm font-semibold" data-program="toddler">Toddlers</button>
+                                <button class="program-tab flex-shrink-0 px-5 py-2 rounded-full transition-colors text-sm font-semibold" data-program="pre-primary">Pre-Primary</button>
+                                <button class="program-tab flex-shrink-0 px-5 py-2 rounded-full transition-colors text-sm font-semibold" data-program="primary">Primary</button>
+                                <button class="program-tab flex-shrink-0 px-5 py-2 rounded-full transition-colors text-sm font-semibold" data-program="kindergarten">Kindergarten</button>
+                                <button class="program-tab flex-shrink-0 px-5 py-2 rounded-full transition-colors text-sm font-semibold" data-program="lower-elementary">Lower Elementary</button>
+                                <button class="program-tab flex-shrink-0 px-5 py-2 rounded-full transition-colors text-sm font-semibold" data-program="upper-elementary">Upper Elementary</button>
+                            </div>
+                        </div>
+                        <!-- Program Content -->
+                        <div>
+                            <div id="toddler-desktop" class="program-content-desktop active">
+                                <div class="bg-white rounded-2xl shadow-xl overflow-hidden md:flex min-h-[480px]">
+                                    <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('infant practical.jpg')"></div>
+                                    <div class="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
+                                        <h3 class="text-3xl font-bold text-slate-800 mb-4">Toddler <span class="font-normal text-2xl text-slate-500">(18-36 Months)</span></h3>
+                                        <p class="text-lg text-slate-600 mb-8">Fostering independence and "I can do it!" moments. Our toddlers learn practical life skills, language, and coordination in a safe, engaging environment.</p>
+                                        <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 transition-colors duration-300">Learn More →</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="pre-primary-desktop" class="program-content-desktop hidden">
+                               <div class="bg-white rounded-2xl shadow-xl overflow-hidden md:flex min-h-[480px]">
+                                    <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('pre primary.jpg')"></div>
+                                    <div class="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
+                                        <h3 class="text-3xl font-bold text-slate-800 mb-4">Pre-Primary <span class="font-normal text-2xl text-slate-500">(18-36 Months)</span></h3>
+                                        <p class="text-lg text-slate-600 mb-8">A bridge between the toddler and primary years, focusing on social skills, concentration, and fine motor development in a prepared environment.</p>
+                                        <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 transition-colors duration-300">Learn More →</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="primary-desktop" class="program-content-desktop hidden">
+                               <div class="bg-white rounded-2xl shadow-xl overflow-hidden md:flex min-h-[480px]">
+                                    <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('primary.jpg')"></div>
+                                    <div class="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
+                                        <h3 class="text-3xl font-bold text-slate-800 mb-4">Primary <span class="font-normal text-2xl text-slate-500">(Years 3-6)</span></h3>
+                                        <p class="text-lg text-slate-600 mb-8">A world of discovery unfolds with hands-on materials for math, language, and science. Children work collaboratively and independently, building a strong academic foundation.</p>
+                                        <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 transition-colors duration-300">Learn More →</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="kindergarten-desktop" class="program-content-desktop hidden">
+                               <div class="bg-white rounded-2xl shadow-xl overflow-hidden md:flex min-h-[480px]">
+                                    <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('kinder garten.jpg')"></div>
+                                    <div class="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
+                                        <h3 class="text-3xl font-bold text-slate-800 mb-4">Kindergarten <span class="font-normal text-2xl text-slate-500">(Years 5-6)</span></h3>
+                                        <p class="text-lg text-slate-600 mb-8">The capstone year! Kindergarteners become leaders and mentors in the classroom, diving deep into projects that solidify their learning and prepare them for elementary school.</p>
+                                        <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 transition-colors duration-300">Learn More →</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="lower-elementary-desktop" class="program-content-desktop hidden">
+                               <div class="bg-white rounded-2xl shadow-xl overflow-hidden md:flex min-h-[480px]">
+                                    <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('lower Elementary.jpg')"></div>
+                                    <div class="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
+                                        <h3 class="text-3xl font-bold text-slate-800 mb-4">Lower Elementary <span class="font-normal text-2xl text-slate-500">(Years 6-9)</span></h3>
+                                        <p class="text-lg text-slate-600 mb-8">Students move from concrete to abstract learning, exploring advanced concepts in math, language, and cultural studies through research and collaborative projects.</p>
+                                        <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 transition-colors duration-300">Learn More →</a>
+                                    </div>
+                               </div>
+                            </div>
+                           <div id="upper-elementary-desktop" class="program-content-desktop hidden">
+                               <div class="bg-white rounded-2xl shadow-xl overflow-hidden md:flex min-h-[480px]">
+                                    <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('upper elementary.jpg')"></div>
+                                    <div class="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
+                                        <h3 class="text-3xl font-bold text-slate-800 mb-4">Upper Elementary <span class="font-normal text-2xl text-slate-500">(Years 9-12)</span></h3>
+                                        <p class="text-lg text-slate-600 mb-8">Developing critical thinking and time-management skills, students take on complex, long-term projects and become responsible, self-directed learners.</p>
+                                        <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 transition-colors duration-300">Learn More →</a>
+                                    </div>
+                               </div>
+                           </div>
+                        </div>
                     </div>
 
-                    <!-- Program Content -->
-                    <div>
-                        <div id="toddler" class="program-content active">
-                            <div class="bg-white rounded-2xl shadow-xl overflow-hidden md:flex min-h-[480px]">
-                                <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('infant practical.jpg')"></div>
-                                <div class="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
-                                    <h3 class="text-3xl font-bold text-slate-800 mb-4">Toddler <span class="font-normal text-2xl text-slate-500">(18-36 Months)</span></h3>
-                                    <p class="text-lg text-slate-600 mb-8">Fostering independence and "I can do it!" moments. Our toddlers learn practical life skills, language, and coordination in a safe, engaging environment.</p>
-                                    <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 transition-colors duration-300">Learn More →</a>
+                    <!-- Mobile Accordion View -->
+                    <div class="md:hidden space-y-2">
+                        <!-- Accordion Item 1 -->
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                            <button class="program-accordion-trigger w-full p-4 text-left font-semibold flex justify-between items-center transition-colors duration-300">
+                                <span>Toddlers</span>
+                                <svg class="w-5 h-5 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            </button>
+                            <div class="program-accordion-content">
+                                <img src="infant practical.jpg" alt="Toddlers playing" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Toddler <span class="font-normal text-xl text-slate-500">(18-36 Months)</span></h3>
+                                    <p class="text-slate-600 mb-4">Fostering independence and "I can do it!" moments. Our toddlers learn practical life skills, language, and coordination in a safe, engaging environment.</p>
+                                    <a href="#" class="font-semibold text-blue-500 hover:text-blue-700">Learn More →</a>
                                 </div>
                             </div>
                         </div>
-                        <div id="pre-primary" class="program-content hidden">
-                           <div class="bg-white rounded-2xl shadow-xl overflow-hidden md:flex min-h-[480px]">
-                                <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('pre primary.jpg')"></div>
-                                <div class="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
-                                    <h3 class="text-3xl font-bold text-slate-800 mb-4">Pre-Primary <span class="font-normal text-2xl text-slate-500">(18-36 Months)</span></h3>
-                                    <p class="text-lg text-slate-600 mb-8">A bridge between the toddler and primary years, focusing on social skills, concentration, and fine motor development in a prepared environment.</p>
-                                    <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 transition-colors duration-300">Learn More →</a>
+                        <!-- Accordion Item 2 -->
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                            <button class="program-accordion-trigger w-full p-4 text-left font-semibold flex justify-between items-center transition-colors duration-300">
+                                <span>Pre-Primary</span>
+                                <svg class="w-5 h-5 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            </button>
+                            <div class="program-accordion-content">
+                                <img src="pre primary.jpg" alt="Pre-Primary classroom" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Pre-Primary <span class="font-normal text-xl text-slate-500">(18-36 Months)</span></h3>
+                                    <p class="text-slate-600 mb-4">A bridge between the toddler and primary years, focusing on social skills, concentration, and fine motor development in a prepared environment.</p>
+                                    <a href="#" class="font-semibold text-blue-500 hover:text-blue-700">Learn More →</a>
                                 </div>
                             </div>
                         </div>
-                        <div id="primary" class="program-content hidden">
-                           <div class="bg-white rounded-2xl shadow-xl overflow-hidden md:flex min-h-[480px]">
-                                <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('primary.jpg')"></div>
-                                <div class="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
-                                    <h3 class="text-3xl font-bold text-slate-800 mb-4">Primary <span class="font-normal text-2xl text-slate-500">(Years 3-6)</span></h3>
-                                    <p class="text-lg text-slate-600 mb-8">A world of discovery unfolds with hands-on materials for math, language, and science. Children work collaboratively and independently, building a strong academic foundation.</p>
-                                    <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 transition-colors duration-300">Learn More →</a>
+                        <!-- ... other accordion items -->
+                         <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                            <button class="program-accordion-trigger w-full p-4 text-left font-semibold flex justify-between items-center transition-colors duration-300">
+                                <span>Primary</span>
+                                <svg class="w-5 h-5 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            </button>
+                            <div class="program-accordion-content">
+                                <img src="primary.jpg" alt="Primary classroom" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Primary <span class="font-normal text-xl text-slate-500">(Years 3-6)</span></h3>
+                                    <p class="text-slate-600 mb-4">A world of discovery unfolds with hands-on materials for math, language, and science. Children work collaboratively and independently, building a strong academic foundation.</p>
+                                    <a href="#" class="font-semibold text-blue-500 hover:text-blue-700">Learn More →</a>
                                 </div>
                             </div>
                         </div>
-                        <div id="kindergarten" class="program-content hidden">
-                           <div class="bg-white rounded-2xl shadow-xl overflow-hidden md:flex min-h-[480px]">
-                                <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('kinder garten.jpg')"></div>
-                                <div class="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
-                                    <h3 class="text-3xl font-bold text-slate-800 mb-4">Kindergarten <span class="font-normal text-2xl text-slate-500">(Years 5-6)</span></h3>
-                                    <p class="text-lg text-slate-600 mb-8">The capstone year! Kindergarteners become leaders and mentors in the classroom, diving deep into projects that solidify their learning and prepare them for elementary school.</p>
-                                    <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 transition-colors duration-300">Learn More →</a>
+                         <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                            <button class="program-accordion-trigger w-full p-4 text-left font-semibold flex justify-between items-center transition-colors duration-300">
+                                <span>Kindergarten</span>
+                                <svg class="w-5 h-5 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            </button>
+                            <div class="program-accordion-content">
+                                <img src="kinder garten.jpg" alt="Kindergarten students" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Kindergarten <span class="font-normal text-xl text-slate-500">(Years 5-6)</span></h3>
+                                    <p class="text-slate-600 mb-4">The capstone year! Kindergarteners become leaders and mentors in the classroom, diving deep into projects that solidify their learning and prepare them for elementary school.</p>
+                                    <a href="#" class="font-semibold text-blue-500 hover:text-blue-700">Learn More →</a>
                                 </div>
                             </div>
                         </div>
-                        <div id="lower-elementary" class="program-content hidden">
-                           <div class="bg-white rounded-2xl shadow-xl overflow-hidden md:flex min-h-[480px]">
-                                <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('lower Elementary.jpg')"></div>
-                                <div class="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
-                                    <h3 class="text-3xl font-bold text-slate-800 mb-4">Lower Elementary <span class="font-normal text-2xl text-slate-500">(Years 6-9)</span></h3>
-                                    <p class="text-lg text-slate-600 mb-8">Students move from concrete to abstract learning, exploring advanced concepts in math, language, and cultural studies through research and collaborative projects.</p>
-                                    <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 transition-colors duration-300">Learn More →</a>
+                         <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                            <button class="program-accordion-trigger w-full p-4 text-left font-semibold flex justify-between items-center transition-colors duration-300">
+                                <span>Lower Elementary</span>
+                                <svg class="w-5 h-5 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            </button>
+                            <div class="program-accordion-content">
+                                <img src="lower Elementary.jpg" alt="Lower Elementary students" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Lower Elementary <span class="font-normal text-xl text-slate-500">(Years 6-9)</span></h3>
+                                    <p class="text-slate-600 mb-4">Students move from concrete to abstract learning, exploring advanced concepts in math, language, and cultural studies through research and collaborative projects.</p>
+                                    <a href="#" class="font-semibold text-blue-500 hover:text-blue-700">Learn More →</a>
                                 </div>
-                           </div>
+                            </div>
                         </div>
-                       <div id="upper-elementary" class="program-content hidden">
-                           <div class="bg-white rounded-2xl shadow-xl overflow-hidden md:flex min-h-[480px]">
-                                <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('upper elementary.jpg')"></div>
-                                <div class="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
-                                    <h3 class="text-3xl font-bold text-slate-800 mb-4">Upper Elementary <span class="font-normal text-2xl text-slate-500">(Years 9-12)</span></h3>
-                                    <p class="text-lg text-slate-600 mb-8">Developing critical thinking and time-management skills, students take on complex, long-term projects and become responsible, self-directed learners.</p>
-                                    <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 transition-colors duration-300">Learn More →</a>
+                         <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                            <button class="program-accordion-trigger w-full p-4 text-left font-semibold flex justify-between items-center transition-colors duration-300">
+                                <span>Upper Elementary</span>
+                                <svg class="w-5 h-5 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            </button>
+                            <div class="program-accordion-content">
+                                <img src="upper elementary.jpg" alt="Upper Elementary students" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Upper Elementary <span class="font-normal text-xl text-slate-500">(Years 9-12)</span></h3>
+                                    <p class="text-slate-600 mb-4">Developing critical thinking and time-management skills, students take on complex, long-term projects and become responsible, self-directed learners.</p>
+                                    <a href="#" class="font-semibold text-blue-500 hover:text-blue-700">Learn More →</a>
                                 </div>
-                           </div>
-                       </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Beyond the Classroom Section -->
-        <section id="enrichment" class="py-20 lg:py-28 bg-white overflow-hidden">
-             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16 reveal-on-scroll slide-up">
-                    <h2 class="text-4xl lg:text-5xl font-bold text-slate-800">Beyond the Classroom</h2>
-                    <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">Enrichment activities that spark new passions and talents.</p>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Card 1: Art -->
-                    <a href="#" class="group relative block h-96 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 reveal-on-scroll zoom-in">
-                        <img src="robotics.jpg" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Child painting">
+<!-- Beyond the Classroom Section -->
+<section id="enrichment" class="py-20 lg:py-28 bg-white overflow-hidden">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 reveal-on-scroll slide-up">
+            <h2 class="text-4xl lg:text-5xl font-bold text-slate-800">Beyond the Classroom</h2>
+            <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">Enrichment activities that spark new passions and talents.</p>
+        </div>
+
+        <div id="enrichment-carousel-wrapper" class="relative reveal-on-scroll fade-in">
+            <!-- Carousel Container -->
+            <div id="enrichment-slider" class="flex snap-x snap-mandatory scroll-smooth pb-8 -mb-8 space-x-8 px-4">
+                
+                <!-- Card 1: Art -->
+                <div class="snap-center flex-shrink-0 w-4/5 sm:w-1/2 md:w-1/3 lg:w-1/4">
+                    <a href="#" class="group relative block h-96 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <img src="https://images.pexels.com/photos/102127/pexels-photo-102127.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Child painting">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20"></div>
                         <div class="relative h-full flex flex-col justify-end p-6 text-white">
                             <h3 class="font-bold text-2xl">Art & Creativity</h3>
                             <p class="mt-1 text-slate-200">Exploring self-expression.</p>
                         </div>
                     </a>
-                    <!-- Card 2: Music -->
-                    <a href="#" class="group relative block h-96 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 reveal-on-scroll zoom-in" style="transition-delay: 150ms;">
+                </div>
+                
+                <!-- Card 2: Music -->
+                <div class="snap-center flex-shrink-0 w-4/5 sm:w-1/2 md:w-1/3 lg:w-1/4">
+                    <a href="#" class="group relative block h-96 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                         <img src="music.png" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Children playing musical instruments">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20"></div>
                         <div class="relative h-full flex flex-col justify-end p-6 text-white">
@@ -515,8 +661,11 @@
                             <p class="mt-1 text-slate-200">Discovering rhythm and song.</p>
                         </div>
                     </a>
-                    <!-- Card 3: Spanish -->
-                     <a href="#" class="group relative block h-96 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 reveal-on-scroll zoom-in" style="transition-delay: 300ms;">
+                </div>
+                
+                <!-- Card 3: Languages -->
+                <div class="snap-center flex-shrink-0 w-4/5 sm:w-1/2 md:w-1/3 lg:w-1/4">
+                     <a href="#" class="group relative block h-96 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                         <img src="lang.png" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Spanish language learning tools">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20"></div>
                         <div class="relative h-full flex flex-col justify-end p-6 text-white">
@@ -524,8 +673,11 @@
                             <p class="mt-1 text-slate-200">Building a bilingual foundation.</p>
                         </div>
                     </a>
-                    <!-- Card 4: Nature -->
-                     <a href="#" class="group relative block h-96 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 reveal-on-scroll zoom-in" style="transition-delay: 450ms;">
+                </div>
+                
+                <!-- Card 4: Nature -->
+                <div class="snap-center flex-shrink-0 w-4/5 sm:w-1/2 md:w-1/3 lg:w-1/4">
+                     <a href="#" class="group relative block h-96 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                         <img src="spring day.jpg" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Child examining a leaf with a magnifying glass">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20"></div>
                         <div class="relative h-full flex flex-col justify-end p-6 text-white">
@@ -534,9 +686,68 @@
                         </div>
                     </a>
                 </div>
+                
+                <!-- Card 5: STEM & Robotics -->
+                <div class="snap-center flex-shrink-0 w-4/5 sm:w-1/2 md:w-1/3 lg:w-1/4">
+                    <a href="#" class="group relative block h-96 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <img src="https://images.pexels.com/photos/8566472/pexels-photo-8566472.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Child building a robot">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20"></div>
+                        <div class="relative h-full flex flex-col justify-end p-6 text-white">
+                            <h3 class="font-bold text-2xl">STEM & Robotics</h3>
+                            <p class="mt-1 text-slate-200">Innovating for the future.</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Card 6: Culinary Arts -->
+                <div class="snap-center flex-shrink-0 w-4/5 sm:w-1/2 md:w-1/3 lg:w-1/4">
+                    <a href="#" class="group relative block h-96 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <img src="https://images.pexels.com/photos/3992933/pexels-photo-3992933.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Children cooking">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20"></div>
+                        <div class="relative h-full flex flex-col justify-end p-6 text-white">
+                            <h3 class="font-bold text-2xl">Culinary Arts</h3>
+                            <p class="mt-1 text-slate-200">Cooking up creativity.</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Card 7: Yoga & Mindfulness -->
+                <div class="snap-center flex-shrink-0 w-4/5 sm:w-1/2 md:w-1/3 lg:w-1/4">
+                     <a href="#" class="group relative block h-96 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <img src="https://images.pexels.com/photos/3822623/pexels-photo-3822623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Children doing yoga">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20"></div>
+                        <div class="relative h-full flex flex-col justify-end p-6 text-white">
+                            <h3 class="font-bold text-2xl">Yoga & Mindfulness</h3>
+                            <p class="mt-1 text-slate-200">Finding calm and focus.</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Card 8: Drama Club -->
+                <div class="snap-center flex-shrink-0 w-4/5 sm:w-1/2 md:w-1/3 lg:w-1/4">
+                     <a href="#" class="group relative block h-96 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <img src="https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Children on a stage">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20"></div>
+                        <div class="relative h-full flex flex-col justify-end p-6 text-white">
+                            <h3 class="font-bold text-2xl">Drama Club</h3>
+                            <p class="mt-1 text-slate-200">Telling stories together.</p>
+                        </div>
+                    </a>
+                </div>
             </div>
-        </section>
-        
+            
+           <!-- Prev Button -->
+            <button id="enrichment-prev" class="absolute top-1/2 left-4 -translate-y-1/2 p-3 rounded-full shadow-lg transition-all z-10 hidden md:block">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>
+            </button>
+            <!-- Next Button -->
+            <button id="enrichment-next" class="absolute top-1/2 right-4 -translate-y-1/2 p-3 rounded-full shadow-lg transition-all z-10 hidden md:block">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg>
+            </button>
+        </div>
+    </div>
+</section>
+
         <!-- Events Section -->
         <section id="events" class="relative py-20 lg:py-28">
             <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('background_events.png');"></div>
@@ -603,14 +814,14 @@
                                          <p class="mt-1 text-blue-100 max-w-lg">Come see the amazing masterpieces created by our little artists.</p>
                                      </div>
                                  </div>
-                              </div>
+                             </div>
                             <button id="prev-past-event" class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full transition-colors z-10">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>
                             </button>
                             <button id="next-past-event" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full transition-colors z-10">
                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg>
                             </button>
-                        </div>
+                         </div>
                     </div>
                 </div>
             </div>
@@ -830,7 +1041,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Scrolled state
             topInfoBar.classList.add('bg-blue-500');
             mainNavBar.classList.add('bg-white', 'shadow-md');
-            headerDivider.classList.add('opacity-0');
+            if(headerDivider) headerDivider.classList.add('opacity-0');
             
             navLinks.forEach(link => {
                 link.classList.remove('text-white');
@@ -852,7 +1063,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Top of page state
             topInfoBar.classList.remove('bg-blue-500');
             mainNavBar.classList.remove('bg-white', 'shadow-md');
-            headerDivider.classList.remove('opacity-0');
+            if(headerDivider) headerDivider.classList.remove('opacity-0');
             
             navLinks.forEach(link => {
                 link.classList.add('text-white');
@@ -951,49 +1162,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Programs Section Logic ---
     const programSection = document.getElementById('programs');
     if (programSection) {
+        // Desktop Tabs
         const programTabs = programSection.querySelectorAll('.program-tab');
-        const programContents = programSection.querySelectorAll('.program-content');
-        let programInterval;
-        let currentProgramIndex = 0;
+        const programContentsDesktop = programSection.querySelectorAll('.program-content-desktop');
 
-        const switchProgramTab = (index) => {
-            const tabToActivate = programTabs[index];
-            if (!tabToActivate) return;
-            
-            const programId = tabToActivate.dataset.program;
-
-            programTabs.forEach(t => t.classList.remove('active'));
-            tabToActivate.classList.add('active');
-
-            programContents.forEach(content => {
-                content.classList.toggle('hidden', content.id !== programId);
-                content.classList.toggle('active', content.id === programId);
-            });
-            currentProgramIndex = index;
-        };
-
-        const stopProgramAutoplay = () => {
-            clearInterval(programInterval);
-        };
-
-        programTabs.forEach((tab, index) => {
+        programTabs.forEach(tab => {
             tab.addEventListener('click', () => {
-                stopProgramAutoplay();
-                switchProgramTab(index);
+                const programId = tab.dataset.program;
+
+                programTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                programContentsDesktop.forEach(content => {
+                    content.classList.toggle('hidden', content.id !== `${programId}-desktop`);
+                    content.classList.toggle('active', content.id === `${programId}-desktop`);
+                });
             });
         });
 
-        const startProgramAutoplay = () => {
-            stopProgramAutoplay();
-            programInterval = setInterval(() => {
-                const nextIndex = (currentProgramIndex + 1) % programTabs.length;
-                switchProgramTab(nextIndex);
-            }, 5000);
-        };
-
-        if (programTabs.length > 0) {
-            startProgramAutoplay();
-        }
+        // Mobile Accordion
+        const accordionTriggers = programSection.querySelectorAll('.program-accordion-trigger');
+        accordionTriggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const isActive = trigger.classList.contains('active-accordion');
+                
+                // Close all other accordions
+                accordionTriggers.forEach(t => t.classList.remove('active-accordion'));
+                
+                // If the clicked one wasn't active, open it
+                if (!isActive) {
+                    trigger.classList.add('active-accordion');
+                }
+            });
+        });
     }
 
     // --- Events Section Logic ---
@@ -1086,49 +1287,49 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     // --- General Info Side Panel Logic ---
-    // const infoTabButton = document.getElementById('info-tab-button');
-    // const openInfoPanelTopButton = document.getElementById('open-info-panel-top');
-    // const openInfoPanelMobileButton = document.getElementById('open-info-panel-mobile'); // New button
-    // const generalInfoPanel = document.getElementById('general-info-panel');
-    // const closeInfoPanelButton = document.getElementById('close-info-panel');
-    // const pageOverlay = document.getElementById('page-overlay');
-    // const panelLinks = document.querySelectorAll('.close-panel-link');
+    const infoTabButton = document.getElementById('info-tab-button');
+    const openInfoPanelTopButton = document.getElementById('open-info-panel-top');
+    const openInfoPanelMobileButton = document.getElementById('open-info-panel-mobile'); // New button
+    const generalInfoPanel = document.getElementById('general-info-panel');
+    const closeInfoPanelButton = document.getElementById('close-info-panel');
+    const pageOverlay = document.getElementById('page-overlay');
+    const panelLinks = document.querySelectorAll('.close-panel-link');
 
-    // const openPanel = () => {
-    //     if (!generalInfoPanel || !pageOverlay) return;
-    //     pageOverlay.classList.remove('hidden');
-    //     requestAnimationFrame(() => { // Use rAF for smoother transition start
-    //         generalInfoPanel.classList.remove('translate-x-full');
-    //         pageOverlay.classList.remove('opacity-0');
-    //     });
-    //     document.body.classList.add('overflow-hidden');
-    //      // Close mobile menu if it's open
-    //     mobileMenu.classList.add('hidden'); 
-    // };
+    const openPanel = () => {
+        if (!generalInfoPanel || !pageOverlay) return;
+        pageOverlay.classList.remove('hidden');
+        requestAnimationFrame(() => { // Use rAF for smoother transition start
+            generalInfoPanel.classList.remove('translate-x-full');
+            pageOverlay.classList.remove('opacity-0');
+        });
+        document.body.classList.add('overflow-hidden');
+         // Close mobile menu if it's open
+        mobileMenu.classList.add('hidden'); 
+    };
 
-    // const closePanel = () => {
-    //     if (!generalInfoPanel || !pageOverlay) return;
-    //     generalInfoPanel.classList.add('translate-x-full');
-    //     pageOverlay.classList.add('opacity-0');
-    //     pageOverlay.addEventListener('transitionend', () => {
-    //         pageOverlay.classList.add('hidden');
-    //     }, { once: true });
-    //     document.body.classList.remove('overflow-hidden');
-    // };
+    const closePanel = () => {
+        if (!generalInfoPanel || !pageOverlay) return;
+        generalInfoPanel.classList.add('translate-x-full');
+        pageOverlay.classList.add('opacity-0');
+        pageOverlay.addEventListener('transitionend', () => {
+            pageOverlay.classList.add('hidden');
+        }, { once: true });
+        document.body.classList.remove('overflow-hidden');
+    };
 
-    // if (infoTabButton) infoTabButton.addEventListener('click', openPanel);
-    // if (openInfoPanelTopButton) openInfoPanelTopButton.addEventListener('click', openPanel);
-    // if (openInfoPanelMobileButton) openInfoPanelMobileButton.addEventListener('click', openPanel); // Add event listener for new button
-    // if (closeInfoPanelButton) closeInfoPanelButton.addEventListener('click', closePanel);
-    // if (pageOverlay) pageOverlay.addEventListener('click', closePanel);
-    // panelLinks.forEach(link => link.addEventListener('click', closePanel));
+    if (infoTabButton) infoTabButton.addEventListener('click', openPanel);
+    if (openInfoPanelTopButton) openInfoPanelTopButton.addEventListener('click', openPanel);
+    if (openInfoPanelMobileButton) openInfoPanelMobileButton.addEventListener('click', openPanel); // Add event listener for new button
+    if (closeInfoPanelButton) closeInfoPanelButton.addEventListener('click', closePanel);
+    if (pageOverlay) pageOverlay.addEventListener('click', closePanel);
+    panelLinks.forEach(link => link.addEventListener('click', closePanel));
 
-    // // Close panel with Escape key
-    // document.addEventListener('keydown', (e) => {
-    //     if (e.key === 'Escape' && !generalInfoPanel.classList.contains('translate-x-full')) {
-    //         closePanel();
-    //     }
-    // });
+    // Close panel with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !generalInfoPanel.classList.contains('translate-x-full')) {
+            closePanel();
+        }
+    });
 
     // --- Scroll Animations & Counters ---
     const scrollObserver = new IntersectionObserver((entries, observer) => {
@@ -1186,6 +1387,77 @@ document.addEventListener('DOMContentLoaded', () => {
     if(yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
+
+   // --- Enrichment Carousel Logic (Infinite) ---
+const enrichmentWrapper = document.getElementById('enrichment-carousel-wrapper');
+if (enrichmentWrapper) {
+    const slider = enrichmentWrapper.querySelector('#enrichment-slider');
+    const prevButton = enrichmentWrapper.querySelector('#enrichment-prev');
+    const nextButton = enrichmentWrapper.querySelector('#enrichment-next');
+    let originalCards = Array.from(slider.children);
+    let isTransitioning = false;
+    let cardWidth = 0;
+    const cloneCount = 4;
+
+    const setupCarousel = () => {
+        slider.innerHTML = '';
+        originalCards.forEach(card => slider.appendChild(card));
+        let currentCards = Array.from(slider.children);
+        if (currentCards.length === 0) return; // Exit if no cards
+        cardWidth = currentCards[0].getBoundingClientRect().width + 32; // 32 is for space-x-8
+
+        for (let i = 0; i < cloneCount; i++) {
+            if (currentCards.length > i) {
+               slider.prepend(currentCards[currentCards.length - 1 - i].cloneNode(true));
+               slider.appendChild(currentCards[i].cloneNode(true));
+            }
+        }
+        
+        slider.style.transition = 'none';
+        counter = cloneCount;
+        slider.style.transform = `translateX(-${counter * cardWidth}px)`;
+    };
+
+    let counter = cloneCount;
+
+    const moveSlider = () => {
+        slider.style.transition = 'transform 0.4s ease-in-out';
+        slider.style.transform = `translateX(-${counter * cardWidth}px)`;
+    };
+
+    nextButton.addEventListener('click', () => {
+        if (isTransitioning) return;
+        counter++;
+        moveSlider();
+    });
+
+    prevButton.addEventListener('click', () => {
+        if (isTransitioning) return;
+        counter--;
+        moveSlider();
+    });
+
+    slider.addEventListener('transitionstart', () => {
+        isTransitioning = true;
+    });
+
+    slider.addEventListener('transitionend', () => {
+        isTransitioning = false;
+        if (counter >= originalCards.length + cloneCount) {
+            slider.style.transition = 'none';
+            counter = cloneCount;
+            slider.style.transform = `translateX(-${counter * cardWidth}px)`;
+        }
+        if (counter < cloneCount) {
+            slider.style.transition = 'none';
+            counter = originalCards.length + counter;
+            slider.style.transform = `translateX(-${counter * cardWidth}px)`;
+        }
+    });
+
+    setupCarousel();
+    window.addEventListener('resize', setupCarousel);
+}
 });
 </script>
 
