@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component Preview | Reston Montessori School</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- ChildCareCRM Form Styles (Official) -->
+    <link rel="stylesheet" type="text/css" href="https://live.childcarecrm.com/form/v1.css">
+    
+    <style>
+        /* Custom Styles to complement Tailwind */
+        html {
+            /* This ensures anchor links scroll to the correct position, offset by the header height */
+            scroll-padding-top: 120px; 
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            opacity: 0; /* Initially hide body for fade-in animation */
+            transition: opacity 1s ease-in-out;
+            background-color: #f5f5f4; /* bg-stone-100 */
+            color: #334155; /* text-slate-700 */
+        }
+
+        /* --- Animation Keyframes --- */
+        @keyframes pulse-glow {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0,0,0,0);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 15px 5px var(--glow-color);
+            }
+        }
+        
+        /* --- Interactive CTA --- */
+        #tour-icon-wrapper {
+            --glow-color: rgba(255, 255, 255, 0.4); /* Default glow color (white) */
+            animation: pulse-glow 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header id="main-header" class="fixed top-0 z-50 w-full transition-all duration-300">
+        <!-- Top information bar -->
+        <div id="top-info-bar" class="text-white transition-colors duration-300 bg-slate-800/50 backdrop-blur-sm">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Desktop Top Bar -->
+                <div class="hidden md:flex items-center justify-between h-10 text-sm">
+                    <nav class="flex items-center space-x-6">
+                        <a href="#" class="hover:text-amber-300 transition-colors">MMUN</a>
+                        <a href="#" class="hover:text-amber-300 transition-colors">PTA</a>
+                        <a href="#events" class="hover:text-amber-300 transition-colors">Calendar</a>
+                        <a href="#events" class="hover:text-amber-300 transition-colors">School Events</a>
+                        <a href="#" id="open-info-panel-top" class="hover:text-amber-300 transition-colors">General Info</a>
+                    </nav>
+                    <div class="flex items-center space-x-6">
+                        <a href="https://www.google.com/maps/search/?api=1&query=1765+Business+Center+Dr,Reston,VA+20190" target="_blank" rel="noopener noreferrer" class="flex items-center font-semibold hover:text-amber-300 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="mr-2 text-blue-400" viewBox="0 0 16 16">
+                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                            </svg>
+                            <span>1765 Business Center Dr, Reston</span>
+                        </a>
+                        <a href="tel:703-481-2922" class="flex items-center font-bold bg-white/20 hover:bg-white/30 px-3 py-1 rounded-full transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="mr-2 text-blue-400" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                            </svg>
+                            <span>703-481-2922</span>
+                        </a>
+                        
+                        <!-- Social Media Links -->
+                        <div class="flex items-center space-x-3 ml-4 pl-4 border-l border-white/20">
+                            <!-- Facebook -->
+                            <a href="https://www.facebook.com/restonmontessori" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 transition-colors" title="Follow us on Facebook">
+                                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                            
+                            <!-- Instagram -->
+                            <a href="https://www.instagram.com/restonmontessori" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 transition-colors" title="Follow us on Instagram">
+                                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M12.017 0C8.396 0 8.002.01 6.78.048 2.719.204.024 2.898-.133 6.959c-.014 1.22-.024 1.614-.024 5.235 0 3.621.01 4.015.048 5.237.156 4.061 2.85 6.755 6.911 6.911 1.222.038 1.616.048 5.237.048 3.621 0 4.015-.01 5.237-.048 4.061-.156 6.755-2.85 6.911-6.911.038-1.222.048-1.616.048-5.237 0-3.621-.01-4.015-.048-5.237C23.956 2.898 21.262.204 17.201.048 15.98.01 15.586 0 12.017 0zm0 2.17c3.549 0 3.97.014 5.378.052 2.291.093 3.231 1.038 3.324 3.329.038 1.409.052 1.829.052 5.378 0 3.549-.014 3.97-.052 5.378-.093 2.291-1.033 3.236-3.324 3.329-1.408.038-1.829.052-5.378.052-3.549 0-3.97-.014-5.378-.052-2.291-.093-3.236-1.038-3.329-3.329-.038-1.409-.052-1.829-.052-5.378 0-3.549.014-3.97.052-5.378.093-2.291 1.038-3.236 3.329-3.329 1.408-.038 1.829-.052 5.378-.052zm0 3.68c-3.315 0-6.002 2.687-6.002 6.002 0 3.315 2.687 6.002 6.002 6.002 3.315 0 6.002-2.687 6.002-6.002 0-3.315-2.687-6.002-6.002-6.002zm0 9.894c-2.14 0-3.892-1.752-3.892-3.892 0-2.14 1.752-3.892 3.892-3.892 2.14 0 3.892 1.752 3.892 3.892 0 2.14-1.752 3.892-3.892 3.892zm7.618-10.17c0-.775-.628-1.403-1.403-1.403-.775 0-1.403.628-1.403 1.403 0 .775.628 1.403 1.403 1.403.775 0 1.403-.628 1.403-1.403z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                            
+                            <!-- YouTube -->
+                            <a href="https://www.youtube.com/@restonmontessori" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 transition-colors" title="Subscribe to our YouTube channel">
+                                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                            
+                            <!-- Pinterest -->
+                            <a href="https://www.pinterest.com/restonmontessori" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 transition-colors" title="Follow us on Pinterest">
+                                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.083.347-.09.375-.293 1.199-.334 1.363-.053.225-.174.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z.017 0z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Top Bar -->
+                <div class="md:hidden flex items-center justify-between h-12">
+                    <div class="flex items-center space-x-4">
+                        <a href="https://www.google.com/maps/search/?api=1&query=1765+Business+Center+Dr,Reston,VA+20190" target="_blank" rel="noopener noreferrer"><span class="sr-only">Location</span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-white" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg></a>
+                        <a href="tel:703-481-2922"><span class="sr-only">Call</span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-white" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg></a>
+                        <a href="mailto:info@restonmontessori.com"><span class="sr-only">Email</span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-white" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg></a>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/restonmontessori" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 transition-colors"><span class="sr-only">Facebook</span><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/restonmontessori" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 transition-colors"><span class="sr-only">Instagram</span><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.017 0C8.396 0 8.002.01 6.78.048 2.719.204.024 2.898-.133 6.959c-.014 1.22-.024 1.614-.024 5.235 0 3.621.01 4.015.048 5.237.156 4.061 2.85 6.755 6.911 6.911 1.222.038 1.616.048 5.237.048 3.621 0 4.015-.01 5.237-.048 4.061-.156 6.755-2.85 6.911-6.911.038-1.222.048-1.616.048-5.237 0-3.621-.01-4.015-.048-5.237C23.956 2.898 21.262.204 17.201.048 15.98.01 15.586 0 12.017 0zm0 2.17c3.549 0 3.97.014 5.378.052 2.291.093 3.231 1.038 3.324 3.329.038 1.409.052 1.829.052 5.378 0 3.549-.014 3.97-.052 5.378-.093 2.291-1.033 3.236-3.324 3.329-1.408.038-1.829.052-5.378.052-3.549 0-3.97-.014-5.378-.052-2.291-.093-3.236-1.038-3.329-3.329-.038-1.409-.052-1.829-.052-5.378 0-3.549.014-3.97.052-5.378.093-2.291 1.038-3.236 3.329-3.329 1.408-.038 1.829-.052 5.378-.052zm0 3.68c-3.315 0-6.002 2.687-6.002 6.002 0 3.315 2.687 6.002 6.002 6.002 3.315 0 6.002-2.687 6.002-6.002 0-3.315-2.687-6.002-6.002-6.002zm0 9.894c-2.14 0-3.892-1.752-3.892-3.892 0-2.14 1.752-3.892 3.892-3.892 2.14 0 3.892 1.752 3.892 3.892 0 2.14-1.752 3.892-3.892 3.892zm7.618-10.17c0-.775-.628-1.403-1.403-1.403-.775 0-1.403.628-1.403 1.403 0 .775.628 1.403 1.403 1.403.775 0 1.403-.628 1.403-1.403z" clip-rule="evenodd" /></svg></a>
+                        <!-- YouTube -->
+                        <a href="https://www.youtube.com/@restonmontessori" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 transition-colors"><span class="sr-only">YouTube</span><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clip-rule="evenodd" /></svg></a>
+                        <!-- Pinterest -->
+                        <a href="https://www.pinterest.com/restonmontessori" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 transition-colors"><span class="sr-only">Pinterest</span><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.083.347-.09.375-.293 1.199-.334 1.363-.053.225-.174.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z.017 0z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Navigation Bar -->
+        <div id="main-nav-bar" class="relative transition-all duration-300 bg-slate-800/50 backdrop-blur-sm">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <!-- Logo (Left side) -->
+                    <div class="flex-shrink-0">
+                        <a href="#" class="flex items-center space-x-2 text-white">
+                            <!-- Placeholder for logo image -->
+                            <div class="h-14 w-14 bg-slate-300/20 rounded-full flex items-center justify-center font-bold text-lg">RMS</div>
+                            <span class="font-bold text-xl hidden sm:inline">Reston Montessori</span>
+                        </a>
+                    </div>
+
+                    <!-- Wrapper for right-aligned content (Desktop) -->
+                    <div class="hidden md:flex items-center space-x-8">
+                        <!-- Desktop Navigation -->
+                        <nav id="desktop-nav" class="flex items-center space-x-8">
+                            <a href="#" class="font-bold text-white hover:text-blue-300 transition-colors duration-300">About us</a>
+                            <a href="#" class="font-bold text-white hover:text-blue-300 transition-colors duration-300">Programs</a>
+                            <a href="#admissions" class="font-bold text-white hover:text-blue-300 transition-colors duration-300">Admissions</a>
+                            <a href="#contact" class="font-bold text-white hover:text-blue-300 transition-colors duration-300">Contact us</a>
+                        </nav>
+
+                        <!-- CTA Button and Calendar Dropdown Wrapper -->
+                        <div class="relative">
+                            <div class="flex items-center space-x-3">
+                                <a href="#admissions" class="inline-block bg-amber-500 text-white font-semibold px-5 py-3 rounded-full shadow-md hover:bg-amber-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                                    Schedule Tour
+                                </a>
+                                <div id="tour-icon-wrapper" class="p-2 bg-white/20 rounded-full transition-all duration-300 cursor-pointer hover:scale-110 hover:bg-white/40">
+                                    <svg id="desktop-tour-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-6 h-6 text-white transition-colors duration-300" viewBox="0 0 16 16">
+                                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <!-- Calendar Dropdown -->
+                            <div id="calendar-dropdown" class="hidden absolute top-full right-0 mt-4 z-40 w-full min-w-[300px] sm:min-w-[400px] md:min-w-[500px]">
+                                <div class="relative">
+                                    <div class="absolute right-4 -top-2 h-4 w-4 bg-white transform rotate-45"></div>
+                                    <div class="bg-white rounded-2xl shadow-2xl overflow-hidden p-2 text-center text-slate-800">
+                                        <h4 class="font-bold p-4">School Calendar</h4>
+                                        <p class="p-4">The school's event calendar would appear here.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile Menu Button (Right side) -->
+                    <div class="md:hidden">
+                        <button id="hamburger-button" class="p-2 rounded-md text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+                            <span class="sr-only">Open main menu</span>
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-bold text-slate-700 hover:text-white hover:bg-blue-500">About us</a>
+                <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-bold text-slate-700 hover:text-white hover:bg-blue-500">Programs</a>
+                <a href="#admissions" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-bold text-slate-700 hover:text-white hover:bg-blue-500">Admissions</a>
+                <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-bold text-slate-700 hover:text-white hover:bg-blue-500">Contact</a>
+            </div>
+             <div class="py-4 border-t border-slate-100">
+                  <div class="px-2 space-y-1 sm:px-3">
+                        <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">MMUN</a>
+                        <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">PTA</a>
+                        <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">Calendar</a>
+                        <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">General Info</a>
+                  </div>
+             </div>
+             <div class="p-4 border-t border-slate-100">
+                  <div class="flex items-center justify-center space-x-3">
+                        <a href="#admissions" class="mobile-nav-link inline-block bg-amber-500 text-white font-semibold px-5 py-3 rounded-full shadow-md hover:bg-amber-600 transition-all">
+                              Schedule Tour
+                        </a>
+                  </div>
+             </div>
+        </div>
+    </header>
+
+    <!-- Admissions Section -->
+    <main id="admissions" class="pt-40 pb-20 lg:pt-48 lg:pb-28 bg-gradient-to-br from-blue-50 to-teal-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold text-blue-800">Admissions & Tours</h2>
+                <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Take the first step in your child's Montessori journey. We invite you to visit our school to see the classrooms, meet our teachers, and learn more about our philosophy.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-white p-4 sm:p-8 rounded-2xl shadow-xl mb-16 border-t-8 border-amber-500">
+                <h3 class="font-bold text-2xl text-blue-800 mb-6 text-center">Book Your Visit Online</h3>
+                <!-- ChildCareCRM iframe using official tour booking URL -->
+                <iframe 
+                    src="https://live.childcarecrm.com/forms/tour-booking/chooser?customerId=82ec3fc99121f0b96e0372eb57fce9da&formId=b42a0ab3-0e2f-443b-ba55-bed7e2c55200"
+                    width="100%" 
+                    height="700"
+                    frameborder="0"
+                    scrolling="auto"
+                    class="w-full rounded-lg shadow-md"
+                    title="Schedule Tour Form">
+                </iframe>
+            </div>
+
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+                <!-- Left Column: Information -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="flex items-center text-2xl font-bold text-blue-800 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-3 text-amber-500" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                            </svg>
+                            Why Tour Our School?
+                        </h3>
+                        <p class="text-slate-600 leading-relaxed">A tour is the best way to experience the unique atmosphere of our classrooms. You'll see firsthand how the Montessori method inspires a love of learning and fosters independence in children. We're here to answer all your questions and help you decide if our community is the right fit for your family.</p>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Questions -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="flex items-center text-2xl font-bold text-blue-800 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-3 text-amber-500" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-2 0c0 .993-.241 1.929-.668 2.754l-1.524-1.525a3.998 3.998 0 000-5.456l1.524-1.525A6.963 6.963 0 0116 10zm-4.243 4.243a4 4 0 01-5.656 0l-1.525 1.525A6.963 6.963 0 0010 16a6.963 6.963 0 004.95-2.05l-1.525-1.525zM6.668 7.246A6.963 6.963 0 004 10a6.963 6.963 0 002.05 4.95l1.525-1.525a4 4 0 010-5.656L6.668 7.246z" clip-rule="evenodd" />
+                            </svg>
+                            Have Questions?
+                        </h3>
+                        <p class="text-slate-600 mb-4">If you have questions before booking, please don't hesitate to reach out.</p>
+                        <ul class="space-y-3 text-sm text-slate-700">
+                           <li class="flex items-center">
+                               <svg class="h-5 w-5 mr-3 text-blue-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-3.17-3.17A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4.18 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                              <a href="tel:+17034812922" class="hover:text-blue-600 transition-colors font-medium">+1 (703) 481-2922</a>
+                          </li>
+                           <li class="flex items-center">
+                               <svg class="h-5 w-5 mr-3 text-blue-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                               <a href="mailto:info@restonmontessori.com" class="hover:text-blue-600 transition-colors font-medium">info@restonmontessori.com</a>
+                          </li>
+                     </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-slate-800 text-slate-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- About -->
+                <div class="md:col-span-2 lg:col-span-1">
+                    <h3 class="text-lg font-semibold text-white mb-4">Reston Montessori School</h3>
+                    <p class="text-sm">Fostering curiosity, creativity, and compassion in young learners since 1986.</p>
+                     <div class="flex space-x-4 mt-6">
+                        <a href="https://www.facebook.com/restonmontessori" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="Follow us on Facebook"><span class="sr-only">Facebook</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
+                        <a href="https://www.instagram.com/restonmontessori" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="Follow us on Instagram"><span class="sr-only">Instagram</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.017 0C8.396 0 8.002.01 6.78.048 2.719.204.024 2.898-.133 6.959c-.014 1.22-.024 1.614-.024 5.235 0 3.621.01 4.015.048 5.237.156 4.061 2.85 6.755 6.911 6.911 1.222.038 1.616.048 5.237.048 3.621 0 4.015-.01 5.237-.048 4.061-.156 6.755-2.85 6.911-6.911.038-1.222.048-1.616.048-5.237 0-3.621-.01-4.015-.048-5.237C23.956 2.898 21.262.204 17.201.048 15.98.01 15.586 0 12.017 0zm0 2.17c3.549 0 3.97.014 5.378.052 2.291.093 3.231 1.038 3.324 3.329.038 1.409.052 1.829.052 5.378 0 3.549-.014 3.97-.052 5.378-.093 2.291-1.033 3.236-3.324 3.329-1.408.038-1.829.052-5.378.052-3.549 0-3.97-.014-5.378-.052-2.291-.093-3.236-1.038-3.329-3.329-.038-1.409-.052-1.829-.052-5.378 0-3.549.014-3.97.052-5.378.093-2.291 1.038-3.236 3.329-3.329 1.408-.038 1.829-.052 5.378-.052zm0 3.68c-3.315 0-6.002 2.687-6.002 6.002 0 3.315 2.687 6.002 6.002 6.002 3.315 0 6.002-2.687 6.002-6.002 0-3.315-2.687-6.002-6.002-6.002zm0 9.894c-2.14 0-3.892-1.752-3.892-3.892 0-2.14 1.752-3.892 3.892-3.892 2.14 0 3.892 1.752 3.892 3.892 0 2.14-1.752 3.892-3.892 3.892zm7.618-10.17c0-.775-.628-1.403-1.403-1.403-.775 0-1.403.628-1.403 1.403 0 .775.628 1.403 1.403 1.403.775 0 1.403-.628 1.403-1.403z" clip-rule="evenodd" /></svg></a>
+                        <a href="https://www.youtube.com/@restonmontessori" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="Subscribe to our YouTube channel"><span class="sr-only">YouTube</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clip-rule="evenodd" /></svg></a>
+                        <a href="https://www.pinterest.com/restonmontessori" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="Follow us on Pinterest"><span class="sr-only">Pinterest</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.083.347-.09.375-.293 1.199-.334 1.363-.053.225-.174.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z.017 0z"/></svg></a>
+                    </div>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">Our Philosophy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Programs</a></li>
+                        <li><a href="#admissions" class="hover:text-white transition-colors">Admissions</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">FAQs</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Info -->
+                <div>
+                     <h3 class="text-lg font-semibold text-white mb-4">Get In Touch</h3>
+                     <ul class="space-y-3 text-sm">
+                          <li class="flex items-start">
+                               <svg class="h-5 w-5 mr-3 mt-0.5 text-slate-400 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                               <span>1765 Business Center Dr,<br>Reston, VA 20190</span>
+                          </li>
+                          <li class="flex items-center">
+                               <svg class="h-5 w-5 mr-3 text-slate-400 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-3.17-3.17A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4.18 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                              <a href="tel:+17034812922" class="hover:text-white transition-colors">+1 (703) 481-2922</a>
+                          </li>
+                           <li class="flex items-center">
+                               <svg class="h-5 w-5 mr-3 text-slate-400 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                               <a href="mailto:info@restonmontessori.com" class="hover:text-white transition-colors">info@restonmontessori.com</a>
+                          </li>
+                     </ul>
+                </div>
+                <!-- Map -->
+                <div>
+                     <h3 class="text-lg font-semibold text-white mb-4">Our Location</h3>
+                     <div class="aspect-video">
+                           <iframe title="Google Maps location for Reston Montessori School" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3103.526847849926!2d-77.35515568464875!3d38.93481097956497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b6482e9c741ae3%3A0xdad1a42398b4c436!2sReston%20Montessori%20School!5e0!3m2!1sen!2sus!4v1620312019571!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" class="rounded-lg"></iframe>
+                     </div>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-slate-700 text-center text-sm text-slate-400">
+                <p>Designed by Nagasai Kakani</p>
+                <p>&copy; <span id="copyright-year"></span> Reston Montessori School. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+<!--
+========================================
+    ChildCareCRM Integration Options
+========================================
+
+OPTION 1: iFrame Integration (Currently Active)
+The iframe below uses the official ChildCareCRM tour booking URL.
+Direct URL: https://live.childcarecrm.com/forms/tour-booking/chooser?customerId=82ec3fc99121f0b96e0372eb57fce9da&formId=b42a0ab3-0e2f-443b-ba55-bed7e2c55200
+
+OPTION 2: JavaScript Widget (Alternative)
+To use the JavaScript widget instead of iframe, replace the iframe section with:
+
+<div id="childcarecrm-tour-form"></div>
+<script type="text/javascript" src="https://live.childcarecrm.com/form/v1.js"></script>
+<script type="text/javascript">
+var crmForm = new ChildCareCRM.Forms.Form({
+    centerId: null,
+    customerId: "82ec3fc99121f0b96e0372eb57fce9da",
+    formId: "b42a0ab3-0e2f-443b-ba55-bed7e2c55200",
+    selector: "#childcarecrm-tour-form",
+    labels: {
+        "next": "Next",
+        "submit": "Submit",
+        "additional_child": "Additional Child",
+        "remove_child": "Remove Child",
+        "change_time": "Change Time",
+        "disclaimer_text": "By clicking \"Submit\" I agree to be sent text and email notifications from <% center_name %>."
+    },
+    callback: null,
+    show_confirmation: true
+});
+crmForm.render();
+</script>
+
+Benefits of each approach:
+- iFrame: More stable, easier to implement, sandboxed security
+- JavaScript Widget: More customizable styling, seamless integration
+
+========================================
+-->
+
+<!-- ChildCareCRM iframe styling and responsive behavior -->
+<style>
+/* Responsive iframe container */
+.iframe-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .iframe-container iframe {
+        min-height: 700px;
+    }
+}
+
+/* Loading animation for iframe */
+.iframe-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f4f6;
+    border-top: 4px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- Fade in body on load ---
+    document.body.style.opacity = '1';
+
+    // --- Header Scroll Effect ---
+    const header = document.getElementById('main-header');
+    const topInfoBar = document.getElementById('top-info-bar');
+    const mainNavBar = document.getElementById('main-nav-bar');
+    const navLinks = document.querySelectorAll('#desktop-nav a');
+    const hamburgerButton = document.getElementById('hamburger-button');
+    const tourIcon = document.getElementById('desktop-tour-icon');
+    const tourIconWrapper = document.getElementById('tour-icon-wrapper');
+
+    const handleHeaderScroll = () => {
+        if (window.scrollY > 50) {
+            // Scrolled state
+            header.classList.add('scrolled');
+            topInfoBar.classList.add('bg-blue-500');
+            topInfoBar.classList.remove('bg-slate-800/50');
+            mainNavBar.classList.add('bg-white', 'shadow-md');
+            mainNavBar.classList.remove('bg-slate-800/50');
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-white');
+                link.classList.add('text-slate-600');
+            });
+            hamburgerButton.classList.remove('text-white');
+            hamburgerButton.classList.add('text-slate-600');
+            if (tourIcon) {
+                tourIcon.classList.remove('text-white');
+                tourIcon.classList.add('text-amber-500');
+            }
+            if (tourIconWrapper) {
+                tourIconWrapper.classList.remove('bg-white/20');
+                tourIconWrapper.classList.add('bg-amber-100');
+                tourIconWrapper.style.setProperty('--glow-color', 'rgba(59, 130, 246, 0.4)');
+            }
+
+        } else {
+            // Top of page state
+            header.classList.remove('scrolled');
+            topInfoBar.classList.remove('bg-blue-500');
+            topInfoBar.classList.add('bg-slate-800/50');
+            mainNavBar.classList.remove('bg-white', 'shadow-md');
+            mainNavBar.classList.add('bg-slate-800/50');
+            
+            navLinks.forEach(link => {
+                link.classList.add('text-white');
+                link.classList.remove('text-slate-600');
+            });
+            hamburgerButton.classList.add('text-white');
+            hamburgerButton.classList.remove('text-slate-600');
+            if (tourIcon) {
+                tourIcon.classList.add('text-white');
+                tourIcon.classList.remove('text-amber-500');
+            }
+            if (tourIconWrapper) {
+                tourIconWrapper.classList.add('bg-white/20');
+                tourIconWrapper.classList.remove('bg-amber-100');
+                tourIconWrapper.style.setProperty('--glow-color', 'rgba(255, 255, 255, 0.4)');
+            }
+        }
+    };
+    
+    window.addEventListener('scroll', handleHeaderScroll);
+    handleHeaderScroll(); // Run on load to set initial state
+
+    // --- Hamburger Menu Toggle ---
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileNavLinks = document.querySelectorAll('#mobile-menu .mobile-nav-link');
+    
+    hamburgerButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+    
+    // --- Calendar Dropdown Logic (Desktop) ---
+    const desktopTourIconWrapper = document.getElementById('tour-icon-wrapper');
+    const calendarDropdown = document.getElementById('calendar-dropdown');
+
+    if (desktopTourIconWrapper && calendarDropdown) {
+        desktopTourIconWrapper.addEventListener('click', (event) => {
+            event.stopPropagation();
+            calendarDropdown.classList.toggle('hidden');
+        });
+    }
+
+    // --- Close dropdowns when clicking outside ---
+    window.addEventListener('click', (event) => {
+        if (calendarDropdown && !calendarDropdown.classList.contains('hidden')) {
+            if (!calendarDropdown.contains(event.target) && !desktopTourIconWrapper.contains(event.target)) {
+                calendarDropdown.classList.add('hidden');
+            }
+        }
+    });
+
+    // --- Dynamic Copyright Year ---
+    const yearSpan = document.getElementById('copyright-year');
+    if(yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+
+});
+</script>
+
+</body>
+</html>
