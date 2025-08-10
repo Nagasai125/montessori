@@ -56,7 +56,7 @@
     <!-- Header Section -->
     <header id="main-header" class="fixed top-0 z-50 w-full transition-all duration-300">
         <!-- Top information bar -->
-        <div id="top-info-bar" class="text-white transition-colors duration-300 bg-slate-800/50 backdrop-blur-sm">
+        <div id="top-info-bar" class="bg-blue-500 text-white transition-all duration-300 shadow-lg">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Desktop Top Bar -->
                 <div class="hidden md:flex items-center justify-between h-10 text-sm">
@@ -135,15 +135,13 @@
         </div>
         
         <!-- Main Navigation Bar -->
-        <div id="main-nav-bar" class="relative transition-all duration-300 bg-slate-800/50 backdrop-blur-sm">
+        <div id="main-nav-bar" class="bg-white relative transition-all duration-300 shadow-xl">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
                     <!-- Logo (Left side) -->
                     <div class="flex-shrink-0">
-                        <a href="#" class="flex items-center space-x-2 text-white">
-                            <!-- Placeholder for logo image -->
-                            <div class="h-14 w-14 bg-slate-300/20 rounded-full flex items-center justify-center font-bold text-lg">RMS</div>
-                            <span class="font-bold text-xl hidden sm:inline">Reston Montessori</span>
+                        <a href="index.html" class="flex items-center space-x-2">
+                            <img class="h-16 w-auto" src="RMS_logo.png" alt="Reston Montessori School Logo" onerror="this.onerror=null;this.src='https://placehold.co/150x64/0ea5e9/ffffff?text=Montessori';">
                         </a>
                     </div>
 
@@ -151,10 +149,10 @@
                     <div class="hidden md:flex items-center space-x-8">
                         <!-- Desktop Navigation -->
                         <nav id="desktop-nav" class="flex items-center space-x-8">
-                            <a href="#" class="font-bold text-white hover:text-blue-300 transition-colors duration-300">About us</a>
-                            <a href="#" class="font-bold text-white hover:text-blue-300 transition-colors duration-300">Programs</a>
-                            <a href="#admissions" class="font-bold text-white hover:text-blue-300 transition-colors duration-300">Admissions</a>
-                            <a href="#contact" class="font-bold text-white hover:text-blue-300 transition-colors duration-300">Contact us</a>
+                            <a href="index.html" class="font-bold text-slate-700 hover:text-blue-600 hover:scale-105 transition-all duration-300 transform">About us</a>
+                            <a href="index.html" class="font-bold text-slate-700 hover:text-blue-600 hover:scale-105 transition-all duration-300 transform">Programs</a>
+                            <a href="index.html" class="font-bold text-slate-700 hover:text-blue-600 hover:scale-105 transition-all duration-300 transform">Admissions</a>
+                            <a href="index.html" class="font-bold text-slate-700 hover:text-blue-600 hover:scale-105 transition-all duration-300 transform">Contact us</a>
                         </nav>
 
                         <!-- CTA Button and Calendar Dropdown Wrapper -->
@@ -185,7 +183,7 @@
                     
                     <!-- Mobile Menu Button (Right side) -->
                     <div class="md:hidden">
-                        <button id="hamburger-button" class="p-2 rounded-md text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+                        <button id="hamburger-button" class="p-2 rounded-md text-slate-700 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-all duration-300">
                             <span class="sr-only">Open main menu</span>
                             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -236,7 +234,7 @@
                 <iframe 
                     src="https://live.childcarecrm.com/forms/tour-booking/chooser?customerId=82ec3fc99121f0b96e0372eb57fce9da&formId=b42a0ab3-0e2f-443b-ba55-bed7e2c55200"
                     width="100%" 
-                    height="700"
+                    height="400"
                     frameborder="0"
                     scrolling="auto"
                     class="w-full rounded-lg shadow-md"
@@ -448,19 +446,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const handleHeaderScroll = () => {
         if (window.scrollY > 50) {
-            // Scrolled state
-            header.classList.add('scrolled');
-            topInfoBar.classList.add('bg-blue-500');
-            topInfoBar.classList.remove('bg-slate-800/50');
-            mainNavBar.classList.add('bg-white', 'shadow-md');
-            mainNavBar.classList.remove('bg-slate-800/50');
+            // Scrolled state - make navbar more prominent
+            topInfoBar.classList.add('bg-blue-600', 'backdrop-blur-md');
+            topInfoBar.classList.remove('bg-blue-500');
+            mainNavBar.classList.add('backdrop-blur-md');
             
             navLinks.forEach(link => {
-                link.classList.remove('text-white');
-                link.classList.add('text-slate-600');
+                link.classList.remove('text-slate-700');
+                link.classList.add('text-slate-800');
             });
-            hamburgerButton.classList.remove('text-white');
-            hamburgerButton.classList.add('text-slate-600');
+            hamburgerButton.classList.remove('text-slate-700');
+            hamburgerButton.classList.add('text-slate-800');
             if (tourIcon) {
                 tourIcon.classList.remove('text-white');
                 tourIcon.classList.add('text-amber-500');
@@ -472,19 +468,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
         } else {
-            // Top of page state
-            header.classList.remove('scrolled');
-            topInfoBar.classList.remove('bg-blue-500');
-            topInfoBar.classList.add('bg-slate-800/50');
-            mainNavBar.classList.remove('bg-white', 'shadow-md');
-            mainNavBar.classList.add('bg-slate-800/50');
+            // Top of page state - default blue and white navbar
+            topInfoBar.classList.remove('bg-blue-600', 'backdrop-blur-md');
+            topInfoBar.classList.add('bg-blue-500');
+            mainNavBar.classList.remove('backdrop-blur-md');
             
             navLinks.forEach(link => {
-                link.classList.add('text-white');
-                link.classList.remove('text-slate-600');
+                link.classList.add('text-slate-700');
+                link.classList.remove('text-slate-800');
             });
-            hamburgerButton.classList.add('text-white');
-            hamburgerButton.classList.remove('text-slate-600');
+            hamburgerButton.classList.add('text-slate-700');
+            hamburgerButton.classList.remove('text-slate-800');
             if (tourIcon) {
                 tourIcon.classList.add('text-white');
                 tourIcon.classList.remove('text-amber-500');
