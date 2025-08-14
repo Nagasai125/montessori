@@ -198,6 +198,19 @@
             transform: rotate(180deg);
         }
 
+        /* --- Dropdown Menu Styles --- */
+        .dropdown-menu {
+            transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+            opacity: 0;
+            transform: translateY(0.5rem);
+            visibility: hidden;
+        }
+        .dropdown-menu.is-open {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+
     </style>
 </head>
 <body class="bg-stone-50 text-slate-700">
@@ -269,9 +282,60 @@
                     <div class="hidden md:flex items-center space-x-8">
                         <!-- Desktop Navigation -->
                         <nav id="desktop-nav" class="flex items-center space-x-8">
-                            <a href="#about" class="font-bold text-white hover:text-blue-300 transition-colors duration-300">About us</a>
-                            <a href="#programs" class="font-bold text-white hover:text-blue-300 transition-colors duration-300">Programs</a>
-                            <a href="#enrichment" class="font-bold text-white hover:text-blue-300 transition-colors duration-300">Enrichment</a>
+                            <div class="relative desktop-dropdown-group">
+                                <a href="https://restonmontessori.com/about-us/" class="font-bold text-white hover:text-blue-300 transition-colors duration-300 flex items-center">
+                                    About us
+                                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </a>
+                                <div class="dropdown-menu absolute top-full left-0 bg-white rounded-md shadow-lg mt-2 py-2 w-48 z-50">
+                                    <a href="https://restonmontessori.com/about-us/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">About Us</a>
+                                    <a href="https://restonmontessori.com/rms-staff/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">RMS Faculty</a>
+                                    <a href="https://restonmontessori.com/rms-knowledge-articles/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Knowledge Articles</a>
+                                    <a href="https://restonmontessori.com/rms-blog-posts/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Blog</a>
+                                    <a href="https://restonmontessori.com/careers/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Careers</a>
+                                    <a href="https://restonmontessori.com/contact/#faq" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">FAQs</a>
+                                    <a href="https://restonmontessori.com/terms-and-conditions/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Terms and Conditions</a>
+                                </div>
+                            </div>
+                            <div class="relative desktop-dropdown-group">
+                                <a href="#programs" class="font-bold text-white hover:text-blue-300 transition-colors duration-300 flex items-center">
+                                    Programs
+                                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </a>
+                                <div id="programs-dropdown" class="dropdown-menu absolute top-full left-0 bg-white rounded-md shadow-lg mt-2 py-2 w-48 z-50">
+                                    <a href="#programs" data-program="toddler" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Toddler</a>
+                                    <a href="#programs" data-program="pre-primary" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Pre-Primary</a>
+                                    <a href="#programs" data-program="primary" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Primary</a>
+                                    <a href="#programs" data-program="kindergarten" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Kindergarten</a>
+                                    <a href="#programs" data-program="lower-elementary" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Lower Elementary</a>
+                                    <a href="#programs" data-program="upper-elementary" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Upper Elementary</a>
+                                </div>
+                            </div>
+                            <div class="relative desktop-dropdown-group">
+                                <a href="#" class="font-bold text-white hover:text-blue-300 transition-colors duration-300 flex items-center">
+                                    Admission
+                                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </a>
+                                <div class="dropdown-menu absolute top-full left-0 bg-white rounded-md shadow-lg mt-2 py-2 w-64 z-50">
+                                    <a href="https://restonmontessori.com/program-hours-tuition/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Program Hours and Tuition</a>
+                                    <a href="https://restonmontessori.com/school-schedule/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">School Schedule and Weather Policy</a>
+                                    <a href="https://restonmontessori.com/new-student-registration/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Student Registration</a>
+                                    <a href="https://restonmontessori.com/enrollment/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Additional Admission Forms</a>
+                                </div>
+                            </div>
+                            <div class="relative desktop-dropdown-group">
+                                <a href="#enrichment" class="font-bold text-white hover:text-blue-300 transition-colors duration-300 flex items-center">
+                                    Enrichment
+                                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </a>
+                                <div class="dropdown-menu absolute top-full left-0 bg-white rounded-md shadow-lg mt-2 py-2 w-48 z-50">
+                                    <a href="https://restonmontessori.com/art-classes/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Art Classes</a>
+                                    <a href="https://restonmontessori.com/stem-kindergarten/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">STEM Kindergarten</a>
+                                    <a href="https://restonmontessori.com/stem-elementary/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">STEM Elementary</a>
+                                    <a href="https://restonmontessori.com/academic-therapy-services/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Academic Therapy</a>
+                                    <a href="https://restonmontessori.com/chess-coaching/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Chess Coaching</a>
+                                </div>
+                            </div>
                             <a href="#contact" class="font-bold text-white hover:text-blue-300 transition-colors duration-300">Contact us</a>
                         </nav>
 
@@ -316,9 +380,60 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-white">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-bold text-slate-700 hover:text-white hover:bg-blue-500">About us</a>
-                <a href="#programs" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-bold text-slate-700 hover:text-white hover:bg-blue-500">Programs</a>
-                <a href="#enrichment" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-bold text-slate-700 hover:text-white hover:bg-blue-500">Enrichment</a>
+                <div class="relative">
+                    <button class="mobile-nav-link w-full text-left block px-3 py-2 rounded-md text-base font-bold text-slate-700 hover:text-white hover:bg-blue-500 flex justify-between items-center" onclick="toggleMobileSubmenu(this)">
+                        <span>About us</span>
+                        <svg class="w-5 h-5 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                    </button>
+                    <div class="hidden pl-4">
+                        <a href="https://restonmontessori.com/about-us/" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">About Us</a>
+                        <a href="https://restonmontessori.com/rms-staff/" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">RMS Faculty</a>
+                        <a href="https://restonmontessori.com/rms-knowledge-articles/" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">Knowledge Articles</a>
+                        <a href="https://restonmontessori.com/rms-blog-posts/" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">Blog</a>
+                        <a href="https://restonmontessori.com/careers/" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">Careers</a>
+                        <a href="https://restonmontessori.com/contact/#faq" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">FAQs</a>
+                        <a href="https://restonmontessori.com/terms-and-conditions/" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">Terms and Conditions</a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <button class="mobile-nav-link w-full text-left block px-3 py-2 rounded-md text-base font-bold text-slate-700 hover:text-white hover:bg-blue-500 flex justify-between items-center" onclick="toggleMobileSubmenu(this)">
+                        <span>Programs</span>
+                        <svg class="w-5 h-5 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                    </button>
+                    <div class="hidden pl-4">
+                        <a href="#programs" data-program="toddler" class="mobile-program-link mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">Toddler</a>
+                        <a href="#programs" data-program="pre-primary" class="mobile-program-link mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">Pre-Primary</a>
+                        <a href="#programs" data-program="primary" class="mobile-program-link mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">Primary</a>
+                        <a href="#programs" data-program="kindergarten" class="mobile-program-link mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">Kindergarten</a>
+                        <a href="#programs" data-program="lower-elementary" class="mobile-program-link mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">Lower Elementary</a>
+                        <a href="#programs" data-program="upper-elementary" class="mobile-program-link mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">Upper Elementary</a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <button class="mobile-nav-link w-full text-left block px-3 py-2 rounded-md text-base font-bold text-slate-700 hover:text-white hover:bg-blue-500 flex justify-between items-center" onclick="toggleMobileSubmenu(this)">
+                        <span>Admission</span>
+                        <svg class="w-5 h-5 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                    </button>
+                    <div class="hidden pl-4">
+                        <a href="https://restonmontessori.com/program-hours-tuition/" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">Program Hours and Tuition</a>
+                        <a href="https://restonmontessori.com/school-schedule/" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">School Schedule and Weather Policy</a>
+                        <a href="https://restonmontessori.com/new-student-registration/" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">Student Registration</a>
+                        <a href="https://restonmontessori.com/enrollment/" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">Additional Admission Forms</a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <button class="mobile-nav-link w-full text-left block px-3 py-2 rounded-md text-base font-bold text-slate-700 hover:text-white hover:bg-blue-500 flex justify-between items-center" onclick="toggleMobileSubmenu(this)">
+                        <span>Enrichment Programs</span>
+                        <svg class="w-5 h-5 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                    </button>
+                    <div class="hidden pl-4">
+                        <a href="https://restonmontessori.com/art-classes/" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">Art Classes</a>
+                        <a href="https://restonmontessori.com/stem-kindergarten/" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">STEM Kindergarten</a>
+                        <a href="https://restonmontessori.com/stem-elementary/" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">STEM Elementary</a>
+                        <a href="https://restonmontessori.com/academic-therapy-services/" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">Academic Therapy</a>
+                        <a href="httpshttps://restonmontessori.com/chess-coaching/" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-white hover:bg-blue-500">Chess Coaching</a>
+                    </div>
+                </div>
                 <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-bold text-slate-700 hover:text-white hover:bg-blue-500">Contact</a>
             </div>
              <div class="py-4 border-t border-slate-100">
@@ -361,7 +476,7 @@
                         Nurturing curiosity, creativity, and a lifelong love for learning in every child.
                     </p>
                     <div class="animate-slide-in-up" style="animation-delay: 0.6s;">
-                        <a href="#" class="cta-glow inline-block bg-blue-500 text-white font-bold px-10 py-4 rounded-full text-lg  shadow-xl hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+                        <a href="schedule_tour.html" class="cta-glow inline-block bg-blue-500 text-white font-bold px-10 py-4 rounded-full text-lg  shadow-xl hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
                             Enroll Now
                         </a>
                     </div>
@@ -477,7 +592,7 @@
                                     <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('infant practical.jpg')"></div>
                                     <div class="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
                                         <h3 class="text-3xl font-bold text-slate-800 mb-4">Toddler <span class="font-normal text-2xl text-slate-500">(18-36 Months)</span></h3>
-                                        <p class="text-lg text-slate-600 mb-8">Fostering independence and "I can do it!" moments. Our toddlers learn practical life skills, language, and coordination in a safe, engaging environment.</p>
+                                        <p class="text-lg text-slate-600 mb-8">Reston Montessori School is pleased to be one of the few Montessori schools offering an Infant/Young Toddler program. We refer to this program as The Nido. In Italian Nido means “nest”. Our Nido is designed to be comfortable and welcoming, so that you and your child will feel at home here.</p>
                                         <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 transition-colors duration-300">Learn More →</a>
                                     </div>
                                 </div>
@@ -487,7 +602,7 @@
                                     <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('pre primary.jpg')"></div>
                                     <div class="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
                                         <h3 class="text-3xl font-bold text-slate-800 mb-4">Pre-Primary <span class="font-normal text-2xl text-slate-500">(18-36 Months)</span></h3>
-                                        <p class="text-lg text-slate-600 mb-8">A bridge between the toddler and primary years, focusing on social skills, concentration, and fine motor development in a prepared environment.</p>
+                                        <p class="text-lg text-slate-600 mb-8">Our uniquely prepared toddler environment meets the young child’s many physical and emotional needs. The classroom is beautifully designed to appeal to the child’s curiosity. Furniture is custom-sized to allow for maximum exploration and development of the senses.</p>
                                         <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 transition-colors duration-300">Learn More →</a>
                                     </div>
                                 </div>
@@ -497,7 +612,7 @@
                                     <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('primary.jpg')"></div>
                                     <div class="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
                                         <h3 class="text-3xl font-bold text-slate-800 mb-4">Primary <span class="font-normal text-2xl text-slate-500">(Years 3-6)</span></h3>
-                                        <p class="text-lg text-slate-600 mb-8">A world of discovery unfolds with hands-on materials for math, language, and science. Children work collaboratively and independently, building a strong academic foundation.</p>
+                                        <p class="text-lg text-slate-600 mb-8">During this time, the child literally absorbs everything in his environment through sensorial exploration. By sensorially absorbing the surroundings, a child forms his personality and himself. He constructs his mind: his memory, power to understand, and ability to think through impressions gained from the environment.</p>
                                         <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 transition-colors duration-300">Learn More →</a>
                                     </div>
                                 </div>
@@ -507,7 +622,7 @@
                                     <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('kinder garten.jpg')"></div>
                                     <div class="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
                                         <h3 class="text-3xl font-bold text-slate-800 mb-4">Kindergarten <span class="font-normal text-2xl text-slate-500">(Years 5-6)</span></h3>
-                                        <p class="text-lg text-slate-600 mb-8">The capstone year! Kindergarteners become leaders and mentors in the classroom, diving deep into projects that solidify their learning and prepare them for elementary school.</p>
+                                        <p class="text-lg text-slate-600 mb-8">The core of the Montessori Primary Curriculum is made up of Practical Life, Sensorial, Language, Math, Science, Geography and Art. This includes daily living tasks, such as pouring juice, polishing shoes, sweeping, and buttoning a shirt. To the child, these are meaningful activities that involve caring for himself, other people, and the environment. They also help the child concentrate, expand his attention span, and improve hand-eye coordination.</p>
                                         <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 transition-colors duration-300">Learn More →</a>
                                     </div>
                                 </div>
@@ -517,7 +632,10 @@
                                     <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('lower Elementary.jpg')"></div>
                                     <div class="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
                                         <h3 class="text-3xl font-bold text-slate-800 mb-4">Lower Elementary <span class="font-normal text-2xl text-slate-500">(Years 6-9)</span></h3>
-                                        <p class="text-lg text-slate-600 mb-8">Students move from concrete to abstract learning, exploring advanced concepts in math, language, and cultural studies through research and collaborative projects.</p>
+                                        <p class="text-lg text-slate-600 mb-8">At age six, the child moves to what Montessori calls the Second Plane of Development, which encompasses the years from 6 to 12.
+
+                                            “Imagination does not become great until human beings, given the courage and the strength, use it to create.”
+                                            – Maria Montessori</p>
                                         <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 transition-colors duration-300">Learn More →</a>
                                     </div>
                                </div>
@@ -527,7 +645,7 @@
                                     <div class="md:w-5/12 h-64 md:h-auto bg-cover bg-center" style="background-image: url('upper elementary.jpg')"></div>
                                     <div class="md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
                                         <h3 class="text-3xl font-bold text-slate-800 mb-4">Upper Elementary <span class="font-normal text-2xl text-slate-500">(Years 9-12)</span></h3>
-                                        <p class="text-lg text-slate-600 mb-8">Developing critical thinking and time-management skills, students take on complex, long-term projects and become responsible, self-directed learners.</p>
+                                        <p class="text-lg text-slate-600 mb-8">Upper Elementary students transition toward more abstract thinking as they begin to rely more on books and traditional resource materials as they build upon the work done with materials in the Lower Elementary.Upper Elementary students transition toward more abstract thinking as they begin to rely more on books and traditional resource materials as they build upon the work done with materials in the Lower Elementary. The goal of the Montessori Upper Elementary program is to prepare the child for what lies ahead academically, while addressing the child’s needs as a whole.</p>
                                         <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 transition-colors duration-300">Learn More →</a>
                                     </div>
                                </div>
@@ -539,7 +657,7 @@
                     <div class="md:hidden space-y-2">
                         <!-- Accordion Item 1 -->
                         <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                            <button class="program-accordion-trigger w-full p-4 text-left font-semibold flex justify-between items-center transition-colors duration-300">
+                            <button class="program-accordion-trigger w-full p-4 text-left font-semibold flex justify-between items-center transition-colors duration-300" data-program="toddler">
                                 <span>Toddlers</span>
                                 <svg class="w-5 h-5 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                             </button>
@@ -554,7 +672,7 @@
                         </div>
                         <!-- Accordion Item 2 -->
                         <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                            <button class="program-accordion-trigger w-full p-4 text-left font-semibold flex justify-between items-center transition-colors duration-300">
+                            <button class="program-accordion-trigger w-full p-4 text-left font-semibold flex justify-between items-center transition-colors duration-300" data-program="pre-primary">
                                 <span>Pre-Primary</span>
                                 <svg class="w-5 h-5 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                             </button>
@@ -569,7 +687,7 @@
                         </div>
                         <!-- ... other accordion items -->
                          <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                            <button class="program-accordion-trigger w-full p-4 text-left font-semibold flex justify-between items-center transition-colors duration-300">
+                            <button class="program-accordion-trigger w-full p-4 text-left font-semibold flex justify-between items-center transition-colors duration-300" data-program="primary">
                                 <span>Primary</span>
                                 <svg class="w-5 h-5 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                             </button>
@@ -583,7 +701,7 @@
                             </div>
                         </div>
                          <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                            <button class="program-accordion-trigger w-full p-4 text-left font-semibold flex justify-between items-center transition-colors duration-300">
+                            <button class="program-accordion-trigger w-full p-4 text-left font-semibold flex justify-between items-center transition-colors duration-300" data-program="kindergarten">
                                 <span>Kindergarten</span>
                                 <svg class="w-5 h-5 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                             </button>
@@ -597,7 +715,7 @@
                             </div>
                         </div>
                          <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                            <button class="program-accordion-trigger w-full p-4 text-left font-semibold flex justify-between items-center transition-colors duration-300">
+                            <button class="program-accordion-trigger w-full p-4 text-left font-semibold flex justify-between items-center transition-colors duration-300" data-program="lower-elementary">
                                 <span>Lower Elementary</span>
                                 <svg class="w-5 h-5 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                             </button>
@@ -611,7 +729,7 @@
                             </div>
                         </div>
                          <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                            <button class="program-accordion-trigger w-full p-4 text-left font-semibold flex justify-between items-center transition-colors duration-300">
+                            <button class="program-accordion-trigger w-full p-4 text-left font-semibold flex justify-between items-center transition-colors duration-300" data-program="upper-elementary">
                                 <span>Upper Elementary</span>
                                 <svg class="w-5 h-5 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                             </button>
@@ -1023,6 +1141,13 @@
 </div>
     
 <script>
+    function toggleMobileSubmenu(button) {
+        const submenu = button.nextElementSibling;
+        const icon = button.querySelector('svg');
+        submenu.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+    }
+
 document.addEventListener('DOMContentLoaded', () => {
     
     // --- Fade in body on load ---
@@ -1101,6 +1226,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
+    // --- Desktop Dropdown Menu Logic ---
+    const dropdownGroups = document.querySelectorAll('.desktop-dropdown-group');
+
+    dropdownGroups.forEach(group => {
+        const menu = group.querySelector('.dropdown-menu');
+        if (!menu) return;
+        let hideTimeout;
+
+        const showMenu = () => {
+            clearTimeout(hideTimeout);
+            // Hide other open dropdowns
+            dropdownGroups.forEach(otherGroup => {
+                if (otherGroup !== group) {
+                    otherGroup.querySelector('.dropdown-menu')?.classList.remove('is-open');
+                }
+            });
+            menu.classList.add('is-open');
+        };
+
+        const hideMenu = () => {
+            hideTimeout = setTimeout(() => {
+                menu.classList.remove('is-open');
+            }, 200); // A small delay to allow moving mouse into the menu
+        };
+
+        group.addEventListener('mouseenter', showMenu);
+        group.addEventListener('mouseleave', hideMenu);
+    });
+
     // --- Calendar Dropdown Logic (Desktop) ---
     const desktopTourIconWrapper = document.getElementById('tour-icon-wrapper');
     const calendarDropdown = document.getElementById('calendar-dropdown');
@@ -1169,37 +1323,66 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Programs Section Logic ---
     const programSection = document.getElementById('programs');
     if (programSection) {
-        // Desktop Tabs
         const programTabs = programSection.querySelectorAll('.program-tab');
         const programContentsDesktop = programSection.querySelectorAll('.program-content-desktop');
+        const accordionTriggers = programSection.querySelectorAll('.program-accordion-trigger');
+
+        const activateProgramTab = (programId) => {
+            programTabs.forEach(t => t.classList.toggle('active', t.dataset.program === programId));
+            programContentsDesktop.forEach(content => {
+                content.classList.toggle('hidden', content.id !== `${programId}-desktop`);
+                content.classList.toggle('active', content.id === `${programId}-desktop`);
+            });
+        };
+
+        const activateAccordion = (programId) => {
+            accordionTriggers.forEach(trigger => {
+                if (trigger.dataset.program === programId) {
+                    trigger.classList.add('active-accordion');
+                } else {
+                    trigger.classList.remove('active-accordion');
+                }
+            });
+        };
 
         programTabs.forEach(tab => {
             tab.addEventListener('click', () => {
-                const programId = tab.dataset.program;
-
-                programTabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-
-                programContentsDesktop.forEach(content => {
-                    content.classList.toggle('hidden', content.id !== `${programId}-desktop`);
-                    content.classList.toggle('active', content.id === `${programId}-desktop`);
-                });
+                activateProgramTab(tab.dataset.program);
             });
         });
 
-        // Mobile Accordion
-        const accordionTriggers = programSection.querySelectorAll('.program-accordion-trigger');
         accordionTriggers.forEach(trigger => {
             trigger.addEventListener('click', () => {
                 const isActive = trigger.classList.contains('active-accordion');
-                
-                // Close all other accordions
+                // Close all accordions
                 accordionTriggers.forEach(t => t.classList.remove('active-accordion'));
-                
-                // If the clicked one wasn't active, open it
+                // If it wasn't active, open it
                 if (!isActive) {
                     trigger.classList.add('active-accordion');
                 }
+            });
+        });
+
+        // Dropdown links
+        const dropdownLinks = document.querySelectorAll('#programs-dropdown a');
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const programId = link.dataset.program;
+                activateProgramTab(programId);
+                programSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Mobile program links
+        const mobileProgramLinks = document.querySelectorAll('.mobile-program-link');
+        mobileProgramLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const programId = link.dataset.program;
+                activateAccordion(programId);
+                mobileMenu.classList.add('hidden');
+                programSection.scrollIntoView({ behavior: 'smooth' });
             });
         });
     }
