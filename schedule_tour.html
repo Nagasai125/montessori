@@ -33,6 +33,22 @@
         }
 
         /* --- Animation Keyframes --- */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         @keyframes pulse-glow {
             0%, 100% {
                 transform: scale(1);
@@ -43,28 +59,59 @@
                 box-shadow: 0 0 15px 5px var(--glow-color);
             }
         }
+
+        /* --- Scroll Animation System --- */
+        .reveal-on-scroll {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform; /* Performance optimization */
+        }
+        .reveal-on-scroll.fade-in { transform: translateY(0); }
+        .reveal-on-scroll.slide-up { transform: translateY(40px); }
+        .reveal-on-scroll.slide-left { transform: translateX(40px); }
+        .reveal-on-scroll.slide-right { transform: translateX(-40px); }
+
+
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0) translateX(0);
+        }
         
         /* --- Interactive CTA --- */
         #tour-icon-wrapper {
             --glow-color: rgba(255, 255, 255, 0.4); /* Default glow color (white) */
             animation: pulse-glow 3s infinite ease-in-out;
         }
+
+        /* --- Dropdown Menu Styles --- */
+        .dropdown-menu {
+            transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+            opacity: 0;
+            transform: translateY(0.5rem);
+            visibility: hidden;
+        }
+        .dropdown-menu.is-open {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
     </style>
 </head>
 <body>
 
     <!-- Header Section -->
-    <header id="main-header" class="fixed top-0 z-50 w-full transition-all duration-300">
+    <header id="main-header" class="fixed top-0 left-0 z-50 w-full transition-all duration-300">
         <!-- Top information bar -->
         <div id="top-info-bar" class="bg-blue-500 text-white transition-all duration-300 shadow-lg">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Desktop Top Bar -->
                 <div class="hidden md:flex items-center justify-between h-10 text-sm">
                     <nav class="flex items-center space-x-6">
-                        <a href="#" class="hover:text-amber-300 transition-colors">MMUN</a>
-                        <a href="#" class="hover:text-amber-300 transition-colors">PTA</a>
-                        <a href="#events" class="hover:text-amber-300 transition-colors">Calendar</a>
-                        <a href="#events" class="hover:text-amber-300 transition-colors">School Events</a>
+                        <a href="https://restonmontessori.com/mmun/" class="hover:text-amber-300 transition-colors">MMUN</a>
+                        <a href="https://restonmontessori.com/pta/" class="hover:text-amber-300 transition-colors">PTA</a>
+                        <a href="https://restonmontessori.com/rms-calendar/" class="hover:text-amber-300 transition-colors">Calendar</a>
+                        <a href="https://restonmontessori.com/rms-school-events/" class="hover:text-amber-300 transition-colors">School Events</a>
+                        <a href="https://restonmontessori.com/contact/" class="hover:text-amber-300 transition-colors">Contact</a>
                         <a href="#" id="open-info-panel-top" class="hover:text-amber-300 transition-colors">General Info</a>
                     </nav>
                     <div class="flex items-center space-x-6">
@@ -107,7 +154,7 @@
                             <!-- Pinterest -->
                             <a href="https://www.pinterest.com/restonmontessori" target="_blank" rel="noopener noreferrer" class="text-white hover:text-amber-300 transition-colors" title="Follow us on Pinterest">
                                 <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.083.347-.09.375-.293 1.199-.334 1.363-.053.225-.174.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z.017 0z"/>
+                                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.083.347-.09.375-.293 1.199-.334 1.363-.053.225-.174.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641 0 12.017 0z"/>
                                 </svg>
                             </a>
                         </div>
@@ -140,7 +187,7 @@
                 <div class="flex items-center justify-between h-20">
                     <!-- Logo (Left side) -->
                     <div class="flex-shrink-0">
-                        <a href="index.html" class="flex items-center space-x-2">
+                        <a href="clineact.html" class="flex items-center space-x-2">
                             <img class="h-16 w-auto" src="RMS_logo.png" alt="Reston Montessori School Logo" onerror="this.onerror=null;this.src='https://placehold.co/150x64/0ea5e9/ffffff?text=Montessori';">
                         </a>
                     </div>
@@ -149,10 +196,61 @@
                     <div class="hidden md:flex items-center space-x-8">
                         <!-- Desktop Navigation -->
                         <nav id="desktop-nav" class="flex items-center space-x-8">
-                            <a href="index.html" class="font-bold text-slate-700 hover:text-blue-600 hover:scale-105 transition-all duration-300 transform">About us</a>
-                            <a href="index.html" class="font-bold text-slate-700 hover:text-blue-600 hover:scale-105 transition-all duration-300 transform">Programs</a>
-                            <a href="index.html" class="font-bold text-slate-700 hover:text-blue-600 hover:scale-105 transition-all duration-300 transform">Admissions</a>
-                            <a href="index.html" class="font-bold text-slate-700 hover:text-blue-600 hover:scale-105 transition-all duration-300 transform">Contact us</a>
+                            <div class="relative desktop-dropdown-group">
+                                <a href="https://restonmontessori.com/about-us/" class="font-bold text-slate-700 hover:text-blue-600 hover:scale-105 transition-all duration-300 transform flex items-center">
+                                    About us
+                                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </a>
+                                <div class="dropdown-menu absolute top-full left-0 bg-white rounded-md shadow-lg mt-2 py-2 w-48 z-50">
+                                    <a href="https://restonmontessori.com/about-us/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">About Us</a>
+                                    <a href="https://restonmontessori.com/rms-staff/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">RMS Faculty</a>
+                                    <a href="https://restonmontessori.com/rms-knowledge-articles/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Knowledge Articles</a>
+                                    <a href="https://restonmontessori.com/rms-blog-posts/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Blog</a>
+                                    <a href="https://restonmontessori.com/careers/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Careers</a>
+                                    <a href="https://restonmontessori.com/contact/#faq" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">FAQs</a>
+                                    <a href="https://restonmontessori.com/terms-and-conditions/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Terms and Conditions</a>
+                                </div>
+                            </div>
+                            <div class="relative desktop-dropdown-group">
+                                <a href="clineact.html#programs" class="font-bold text-slate-700 hover:text-blue-600 hover:scale-105 transition-all duration-300 transform flex items-center">
+                                    Programs
+                                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </a>
+                                <div id="programs-dropdown" class="dropdown-menu absolute top-full left-0 bg-white rounded-md shadow-lg mt-2 py-2 w-48 z-50">
+                                    <a href="clineact.html#programs" data-program="toddler" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Toddler</a>
+                                    <a href="clineact.html#programs" data-program="pre-primary" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Pre-Primary</a>
+                                    <a href="clineact.html#programs" data-program="primary" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Primary</a>
+                                    <a href="clineact.html#programs" data-program="kindergarten" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Kindergarten</a>
+                                    <a href="clineact.html#programs" data-program="lower-elementary" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Lower Elementary</a>
+                                    <a href="clineact.html#programs" data-program="upper-elementary" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Upper Elementary</a>
+                                </div>
+                            </div>
+                            <div class="relative desktop-dropdown-group">
+                                <a href="#" class="font-bold text-slate-700 hover:text-blue-600 hover:scale-105 transition-all duration-300 transform flex items-center">
+                                    Admission
+                                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </a>
+                                <div class="dropdown-menu absolute top-full left-0 bg-white rounded-md shadow-lg mt-2 py-2 w-64 z-50">
+                                    <a href="https://restonmontessori.com/program-hours-tuition/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Program Hours and Tuition</a>
+                                    <a href="https://restonmontessori.com/school-schedule/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">School Schedule and Weather Policy</a>
+                                    <a href="https://restonmontessori.com/new-student-registration/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Student Registration</a>
+                                    <a href="https://restonmontessori.com/enrollment/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Additional Admission Forms</a>
+                                </div>
+                            </div>
+                            <div class="relative desktop-dropdown-group">
+                                <a href="clineact.html#enrichment" class="font-bold text-slate-700 hover:text-blue-600 hover:scale-105 transition-all duration-300 transform flex items-center">
+                                    Enrichment
+                                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </a>
+                                <div class="dropdown-menu absolute top-full left-0 bg-white rounded-md shadow-lg mt-2 py-2 w-48 z-50">
+                                    <a href="https://restonmontessori.com/art-classes/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Art Classes</a>
+                                    <a href="https://restonmontessori.com/stem-kindergarten/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">STEM Kindergarten</a>
+                                    <a href="https://restonmontessori.com/stem-elementary/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">STEM Elementary</a>
+                                    <a href="https://restonmontessori.com/academic-therapy-services/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Academic Therapy</a>
+                                    <a href="https://restonmontessori.com/chess-coaching/" class="block px-4 py-2 text-slate-700 hover:bg-blue-500 hover:text-white">Chess Coaching</a>
+                                </div>
+                            </div>
+                            <a href="clineact.html#contact" class="font-bold text-slate-700 hover:text-blue-600 hover:scale-105 transition-all duration-300 transform">Contact us</a>
                         </nav>
 
                         <!-- CTA Button and Calendar Dropdown Wrapper -->
@@ -161,8 +259,8 @@
                                 <a href="#admissions" class="inline-block bg-amber-500 text-white font-semibold px-5 py-3 rounded-full shadow-md hover:bg-amber-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                                     Schedule Tour
                                 </a>
-                                <div id="tour-icon-wrapper" class="p-2 bg-white/20 rounded-full transition-all duration-300 cursor-pointer hover:scale-110 hover:bg-white/40">
-                                    <svg id="desktop-tour-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-6 h-6 text-white transition-colors duration-300" viewBox="0 0 16 16">
+                                <div id="tour-icon-wrapper" class="p-2 bg-amber-100 rounded-full transition-all duration-300 cursor-pointer hover:scale-110 hover:bg-amber-200">
+                                    <svg id="desktop-tour-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-6 h-6 text-amber-500 transition-colors duration-300" viewBox="0 0 16 16">
                                         <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
                                     </svg>
                                 </div>
@@ -197,16 +295,16 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-bold text-slate-700 hover:text-white hover:bg-blue-500">About us</a>
-                <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-bold text-slate-700 hover:text-white hover:bg-blue-500">Programs</a>
+                <a href="clineact.html#about" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-bold text-slate-700 hover:text-white hover:bg-blue-500">About us</a>
+                <a href="clineact.html#programs" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-bold text-slate-700 hover:text-white hover:bg-blue-500">Programs</a>
                 <a href="#admissions" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-bold text-slate-700 hover:text-white hover:bg-blue-500">Admissions</a>
-                <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-bold text-slate-700 hover:text-white hover:bg-blue-500">Contact</a>
+                <a href="clineact.html#contact" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-bold text-slate-700 hover:text-white hover:bg-blue-500">Contact</a>
             </div>
              <div class="py-4 border-t border-slate-100">
                   <div class="px-2 space-y-1 sm:px-3">
-                        <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">MMUN</a>
-                        <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">PTA</a>
-                        <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">Calendar</a>
+                        <a href="https://restonmontessori.com/mmun/" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">MMUN</a>
+                        <a href="https://restonmontessori.com/pta/" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">PTA</a>
+                        <a href="https://restonmontessori.com/rms-calendar/" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">Calendar</a>
                         <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-500 hover:text-white hover:bg-blue-500">General Info</a>
                   </div>
              </div>
@@ -223,28 +321,40 @@
     <!-- Admissions Section -->
     <main id="admissions" class="pt-40 pb-20 lg:pt-48 lg:pb-28 bg-gradient-to-br from-blue-50 to-teal-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 reveal-on-scroll slide-up">
                 <h2 class="text-4xl lg:text-5xl font-bold text-blue-800">Admissions & Tours</h2>
                 <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Take the first step in your child's Montessori journey. We invite you to visit our school to see the classrooms, meet our teachers, and learn more about our philosophy.</p>
             </div>
             
-            <div class="max-w-4xl mx-auto bg-white p-4 sm:p-8 rounded-2xl shadow-xl mb-16 border-t-8 border-amber-500">
+            <div class="max-w-4xl mx-auto bg-white p-4 sm:p-8 rounded-2xl shadow-xl mb-16 border-t-8 border-amber-500 reveal-on-scroll fade-in" style="transition-delay: 200ms;">
                 <h3 class="font-bold text-2xl text-blue-800 mb-6 text-center">Book Your Visit Online</h3>
-                <!-- ChildCareCRM iframe using official tour booking URL -->
-                <iframe 
-                    src="https://live.childcarecrm.com/forms/tour-booking/chooser?customerId=82ec3fc99121f0b96e0372eb57fce9da&formId=b42a0ab3-0e2f-443b-ba55-bed7e2c55200"
-                    width="100%" 
-                    height="400"
-                    frameborder="0"
-                    scrolling="auto"
-                    class="w-full rounded-lg shadow-md"
-                    title="Schedule Tour Form">
-                </iframe>
+                <!-- ChildCareCRM JavaScript Widget -->
+                <div id="childcarecrm-tour-form"></div>
+                <script type="text/javascript" src="https://live.childcarecrm.com/form/v1.js"></script>
+                <script type="text/javascript">
+                var crmForm = new ChildCareCRM.Forms.Form({
+                    centerId: null,
+                    customerId: "82ec3fc99121f0b96e0372eb57fce9da",
+                    formId: "b42a0ab3-0e2f-443b-ba55-bed7e2c55200",
+                    selector: "#childcarecrm-tour-form",
+                    labels: {
+                        "next": "Next",
+                        "submit": "Submit",
+                        "additional_child": "Additional Child",
+                        "remove_child": "Remove Child",
+                        "change_time": "Change Time",
+                        "disclaimer_text": "By clicking \"Submit\" I agree to be sent text and email notifications from <% center_name %>."
+                    },
+                    callback: null,
+                    show_confirmation: true
+                });
+                crmForm.render();
+                </script>
             </div>
 
             <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-start">
                 <!-- Left Column: Information -->
-                <div class="space-y-8">
+                <div class="space-y-8 reveal-on-scroll slide-right" style="transition-delay: 400ms;">
                     <div>
                         <h3 class="flex items-center text-2xl font-bold text-blue-800 mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-3 text-amber-500" viewBox="0 0 20 20" fill="currentColor">
@@ -257,7 +367,7 @@
                 </div>
                 
                 <!-- Right Column: Questions -->
-                <div class="space-y-8">
+                <div class="space-y-8 reveal-on-scroll slide-left" style="transition-delay: 500ms;">
                     <div>
                         <h3 class="flex items-center text-2xl font-bold text-blue-800 mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-3 text-amber-500" viewBox="0 0 20 20" fill="currentColor">
@@ -294,7 +404,7 @@
                         <a href="https://www.facebook.com/restonmontessori" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="Follow us on Facebook"><span class="sr-only">Facebook</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
                         <a href="https://www.instagram.com/restonmontessori" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="Follow us on Instagram"><span class="sr-only">Instagram</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.017 0C8.396 0 8.002.01 6.78.048 2.719.204.024 2.898-.133 6.959c-.014 1.22-.024 1.614-.024 5.235 0 3.621.01 4.015.048 5.237.156 4.061 2.85 6.755 6.911 6.911 1.222.038 1.616.048 5.237.048 3.621 0 4.015-.01 5.237-.048 4.061-.156 6.755-2.85 6.911-6.911.038-1.222.048-1.616.048-5.237 0-3.621-.01-4.015-.048-5.237C23.956 2.898 21.262.204 17.201.048 15.98.01 15.586 0 12.017 0zm0 2.17c3.549 0 3.97.014 5.378.052 2.291.093 3.231 1.038 3.324 3.329.038 1.409.052 1.829.052 5.378 0 3.549-.014 3.97-.052 5.378-.093 2.291-1.033 3.236-3.324 3.329-1.408.038-1.829.052-5.378.052-3.549 0-3.97-.014-5.378-.052-2.291-.093-3.236-1.038-3.329-3.329-.038-1.409-.052-1.829-.052-5.378 0-3.549.014-3.97.052-5.378.093-2.291 1.038-3.236 3.329-3.329 1.408-.038 1.829-.052 5.378-.052zm0 3.68c-3.315 0-6.002 2.687-6.002 6.002 0 3.315 2.687 6.002 6.002 6.002 3.315 0 6.002-2.687 6.002-6.002 0-3.315-2.687-6.002-6.002-6.002zm0 9.894c-2.14 0-3.892-1.752-3.892-3.892 0-2.14 1.752-3.892 3.892-3.892 2.14 0 3.892 1.752 3.892 3.892 0 2.14-1.752 3.892-3.892 3.892zm7.618-10.17c0-.775-.628-1.403-1.403-1.403-.775 0-1.403.628-1.403 1.403 0 .775.628 1.403 1.403 1.403.775 0 1.403-.628 1.403-1.403z" clip-rule="evenodd" /></svg></a>
                         <a href="https://www.youtube.com/@restonmontessori" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="Subscribe to our YouTube channel"><span class="sr-only">YouTube</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clip-rule="evenodd" /></svg></a>
-                        <a href="https://www.pinterest.com/restonmontessori" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="Follow us on Pinterest"><span class="sr-only">Pinterest</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.083.347-.09.375-.293 1.199-.334 1.363-.053.225-.174.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z.017 0z"/></svg></a>
+                        <a href="https://www.pinterest.com/restonmontessori" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="Follow us on Pinterest"><span class="sr-only">Pinterest</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.083.347-.09.375-.293 1.199-.334 1.363-.053.225-.174.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641 0 12.017 0z"/></svg></a>
                     </div>
                 </div>
                 <!-- Quick Links -->
@@ -430,84 +540,68 @@ Benefits of each approach:
 </style>
 
 <script>
+    function toggleMobileSubmenu(button) {
+        const submenu = button.nextElementSibling;
+        const icon = button.querySelector('svg');
+        submenu.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+    }
+
 document.addEventListener('DOMContentLoaded', () => {
     
     // --- Fade in body on load ---
     document.body.style.opacity = '1';
 
-    // --- Header Scroll Effect ---
-    const header = document.getElementById('main-header');
-    const topInfoBar = document.getElementById('top-info-bar');
-    const mainNavBar = document.getElementById('main-nav-bar');
-    const navLinks = document.querySelectorAll('#desktop-nav a');
-    const hamburgerButton = document.getElementById('hamburger-button');
-    const tourIcon = document.getElementById('desktop-tour-icon');
-    const tourIconWrapper = document.getElementById('tour-icon-wrapper');
-
-    const handleHeaderScroll = () => {
-        if (window.scrollY > 50) {
-            // Scrolled state - make navbar more prominent
-            topInfoBar.classList.add('bg-blue-600', 'backdrop-blur-md');
-            topInfoBar.classList.remove('bg-blue-500');
-            mainNavBar.classList.add('backdrop-blur-md');
-            
-            navLinks.forEach(link => {
-                link.classList.remove('text-slate-700');
-                link.classList.add('text-slate-800');
-            });
-            hamburgerButton.classList.remove('text-slate-700');
-            hamburgerButton.classList.add('text-slate-800');
-            if (tourIcon) {
-                tourIcon.classList.remove('text-white');
-                tourIcon.classList.add('text-amber-500');
-            }
-            if (tourIconWrapper) {
-                tourIconWrapper.classList.remove('bg-white/20');
-                tourIconWrapper.classList.add('bg-amber-100');
-                tourIconWrapper.style.setProperty('--glow-color', 'rgba(59, 130, 246, 0.4)');
-            }
-
-        } else {
-            // Top of page state - default blue and white navbar
-            topInfoBar.classList.remove('bg-blue-600', 'backdrop-blur-md');
-            topInfoBar.classList.add('bg-blue-500');
-            mainNavBar.classList.remove('backdrop-blur-md');
-            
-            navLinks.forEach(link => {
-                link.classList.add('text-slate-700');
-                link.classList.remove('text-slate-800');
-            });
-            hamburgerButton.classList.add('text-slate-700');
-            hamburgerButton.classList.remove('text-slate-800');
-            if (tourIcon) {
-                tourIcon.classList.add('text-white');
-                tourIcon.classList.remove('text-amber-500');
-            }
-            if (tourIconWrapper) {
-                tourIconWrapper.classList.add('bg-white/20');
-                tourIconWrapper.classList.remove('bg-amber-100');
-                tourIconWrapper.style.setProperty('--glow-color', 'rgba(255, 255, 255, 0.4)');
-            }
-        }
-    };
     
-    window.addEventListener('scroll', handleHeaderScroll);
-    handleHeaderScroll(); // Run on load to set initial state
 
     // --- Hamburger Menu Toggle ---
     const mobileMenu = document.getElementById('mobile-menu');
-    const mobileNavLinks = document.querySelectorAll('#mobile-menu .mobile-nav-link');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const hamburgerButton = document.getElementById('hamburger-button');
     
-    hamburgerButton.addEventListener('click', () => {
+    hamburgerButton.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent click from immediately closing the menu
         mobileMenu.classList.toggle('hidden');
     });
 
     mobileNavLinks.forEach(link => {
         link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
+            // Don't close for the general info link, as it opens a panel
+            if (link.id !== 'open-info-panel-mobile') {
+                mobileMenu.classList.add('hidden');
+            }
         });
     });
     
+    // --- Desktop Dropdown Menu Logic ---
+    const dropdownGroups = document.querySelectorAll('.desktop-dropdown-group');
+
+    dropdownGroups.forEach(group => {
+        const menu = group.querySelector('.dropdown-menu');
+        if (!menu) return;
+        let hideTimeout;
+
+        const showMenu = () => {
+            clearTimeout(hideTimeout);
+            // Hide other open dropdowns
+            dropdownGroups.forEach(otherGroup => {
+                if (otherGroup !== group) {
+                    otherGroup.querySelector('.dropdown-menu')?.classList.remove('is-open');
+                }
+            });
+            menu.classList.add('is-open');
+        };
+
+        const hideMenu = () => {
+            hideTimeout = setTimeout(() => {
+                menu.classList.remove('is-open');
+            }, 200); // A small delay to allow moving mouse into the menu
+        };
+
+        group.addEventListener('mouseenter', showMenu);
+        group.addEventListener('mouseleave', hideMenu);
+    });
+
     // --- Calendar Dropdown Logic (Desktop) ---
     const desktopTourIconWrapper = document.getElementById('tour-icon-wrapper');
     const calendarDropdown = document.getElementById('calendar-dropdown');
@@ -519,14 +613,311 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Close dropdowns when clicking outside ---
+    // --- Mobile Calendar Modal Logic ---
+    const mobileTourIconWrapper = document.getElementById('mobile-tour-icon-wrapper');
+    const mobileCalendarModal = document.getElementById('mobile-calendar-modal');
+    const closeMobileCalendarButton = document.getElementById('close-mobile-calendar');
+
+    const openMobileCalendar = () => {
+        if (!mobileCalendarModal) return;
+        mobileCalendarModal.classList.remove('hidden');
+        mobileCalendarModal.classList.add('flex'); // Use flex for centering
+        document.body.classList.add('overflow-hidden');
+        // Also close the main mobile menu if it's open
+        document.getElementById('mobile-menu').classList.add('hidden');
+    };
+
+    const closeMobileCalendar = () => {
+        if (!mobileCalendarModal) return;
+        mobileCalendarModal.classList.add('hidden');
+        mobileCalendarModal.classList.remove('flex');
+        document.body.classList.remove('overflow-hidden');
+    };
+
+    if (mobileTourIconWrapper) {
+        mobileTourIconWrapper.addEventListener('click', openMobileCalendar);
+    }
+    if (closeMobileCalendarButton) {
+        closeMobileCalendarButton.addEventListener('click', closeMobileCalendar);
+    }
+    // Also close modal if clicking on the background overlay
+    if (mobileCalendarModal) {
+        mobileCalendarModal.addEventListener('click', (event) => {
+            if (event.target === mobileCalendarModal) {
+                closeMobileCalendar();
+            }
+        });
+    }
+
+    // --- Close dropdowns and mobile menu when clicking outside ---
     window.addEventListener('click', (event) => {
+        // For desktop calendar dropdown
         if (calendarDropdown && !calendarDropdown.classList.contains('hidden')) {
             if (!calendarDropdown.contains(event.target) && !desktopTourIconWrapper.contains(event.target)) {
                 calendarDropdown.classList.add('hidden');
             }
         }
+
+        // For mobile hamburger menu
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+            // Check if the click is outside the menu AND outside the hamburger button
+            if (!mobileMenu.contains(event.target) && !hamburgerButton.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        }
     });
+
+    // --- Programs Section Logic ---
+    const programSection = document.getElementById('programs');
+    if (programSection) {
+        const programTabs = programSection.querySelectorAll('.program-tab');
+        const programContentsDesktop = programSection.querySelectorAll('.program-content-desktop');
+        const accordionTriggers = programSection.querySelectorAll('.program-accordion-trigger');
+
+        const activateProgramTab = (programId) => {
+            programTabs.forEach(t => t.classList.toggle('active', t.dataset.program === programId));
+            programContentsDesktop.forEach(content => {
+                content.classList.toggle('hidden', content.id !== `${programId}-desktop`);
+                content.classList.toggle('active', content.id === `${programId}-desktop`);
+            });
+        };
+
+        const activateAccordion = (programId) => {
+            accordionTriggers.forEach(trigger => {
+                if (trigger.dataset.program === programId) {
+                    trigger.classList.add('active-accordion');
+                } else {
+                    trigger.classList.remove('active-accordion');
+                }
+            });
+        };
+
+        programTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                activateProgramTab(tab.dataset.program);
+            });
+        });
+
+        accordionTriggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const isActive = trigger.classList.contains('active-accordion');
+                // Close all accordions
+                accordionTriggers.forEach(t => t.classList.remove('active-accordion'));
+                // If it wasn't active, open it
+                if (!isActive) {
+                    trigger.classList.add('active-accordion');
+                }
+            });
+        });
+
+        // Dropdown links
+        const dropdownLinks = document.querySelectorAll('#programs-dropdown a');
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const programId = link.dataset.program;
+                activateProgramTab(programId);
+                programSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Mobile program links
+        const mobileProgramLinks = document.querySelectorAll('.mobile-program-link');
+        mobileProgramLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const programId = link.dataset.program;
+                activateAccordion(programId);
+                mobileMenu.classList.add('hidden');
+                programSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    }
+
+    // --- Events Section Logic ---
+    const eventTabs = document.querySelectorAll('.event-tab');
+    const eventContents = document.querySelectorAll('.event-content');
+    let pastEventSliderInitialized = false;
+
+    eventTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const eventTabId = tab.dataset.eventTab;
+
+            eventTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            eventContents.forEach(content => {
+                if (content.id === eventTabId) {
+                    content.classList.remove('hidden');
+                    content.classList.add('active');
+                    if (eventTabId === 'past-events' && !pastEventSliderInitialized) {
+                        createSlider('past-event-slider', '.school-event-slide', 5000, {
+                            prevButton: 'prev-past-event',
+                            nextButton: 'next-past-event'
+                        });
+                        pastEventSliderInitialized = true;
+                    }
+                } else {
+                    content.classList.add('hidden');
+                    content.classList.remove('active');
+                }
+            });
+        });
+    });
+
+
+    // --- Generic Slider Function ---
+    const createSlider = (sliderId, slideClass, intervalTime, options = {}) => {
+        const sliderContainer = document.getElementById(sliderId);
+        if (!sliderContainer) return;
+
+        const slides = sliderContainer.querySelectorAll(slideClass);
+        if (slides.length === 0) return;
+
+        let currentSlide = 0;
+        let slideInterval;
+
+        const showSlide = (index) => {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('opacity-100', i === index);
+                slide.classList.toggle('opacity-0', i !== index);
+                slide.style.zIndex = i === index ? 10 : 1;
+            });
+        };
+
+        const nextSlide = () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        };
+        
+        const prevSlide = () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        const startSlider = () => {
+            if(intervalTime > 0){
+                slideInterval = setInterval(nextSlide, intervalTime);
+            }
+        };
+        
+        const resetSlider = () => {
+            clearInterval(slideInterval);
+            startSlider();
+        };
+
+        if (options.prevButton) {
+            document.getElementById(options.prevButton).addEventListener('click', () => {
+                prevSlide();
+                resetSlider();
+            });
+        }
+        if (options.nextButton) {
+            document.getElementById(options.nextButton).addEventListener('click', () => {
+                nextSlide();
+                resetSlider();
+            });
+        }
+
+        showSlide(currentSlide);
+        startSlider();
+    };
+    
+    // --- General Info Side Panel Logic ---
+    const infoTabButton = document.getElementById('info-tab-button');
+    const openInfoPanelTopButton = document.getElementById('open-info-panel-top');
+    const openInfoPanelMobileButton = document.getElementById('open-info-panel-mobile'); // New button
+    const generalInfoPanel = document.getElementById('general-info-panel');
+    const closeInfoPanelButton = document.getElementById('close-info-panel');
+    const pageOverlay = document.getElementById('page-overlay');
+    const panelLinks = document.querySelectorAll('.close-panel-link');
+
+    const openPanel = () => {
+        if (!generalInfoPanel || !pageOverlay) return;
+        pageOverlay.classList.remove('hidden');
+        requestAnimationFrame(() => { // Use rAF for smoother transition start
+            generalInfoPanel.classList.remove('translate-x-full');
+            pageOverlay.classList.remove('opacity-0');
+        });
+        document.body.classList.add('overflow-hidden');
+         // Close mobile menu if it's open
+        mobileMenu.classList.add('hidden'); 
+    };
+
+    const closePanel = () => {
+        if (!generalInfoPanel || !pageOverlay) return;
+        generalInfoPanel.classList.add('translate-x-full');
+        pageOverlay.classList.add('opacity-0');
+        pageOverlay.addEventListener('transitionend', () => {
+            pageOverlay.classList.add('hidden');
+        }, { once: true });
+        document.body.classList.remove('overflow-hidden');
+    };
+
+    if (infoTabButton) infoTabButton.addEventListener('click', openPanel);
+    if (openInfoPanelTopButton) openInfoPanelTopButton.addEventListener('click', openPanel);
+    if (openInfoPanelMobileButton) openInfoPanelMobileButton.addEventListener('click', openPanel); // Add event listener for new button
+    if (closeInfoPanelButton) closeInfoPanelButton.addEventListener('click', closePanel);
+    if (pageOverlay) pageOverlay.addEventListener('click', closePanel);
+    panelLinks.forEach(link => link.addEventListener('click', closePanel));
+
+    // Close panel with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !generalInfoPanel.classList.contains('translate-x-full')) {
+            closePanel();
+        }
+    });
+
+    // --- Scroll Animations & Counters ---
+    const scrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                
+                // Animate counter if it's a counter element
+                if (entry.target.classList.contains('counter')) {
+                    const targetText = entry.target.getAttribute('data-target');
+                    const displaySuffix = targetText.includes('+') ? '+' : '';
+                    const target = parseInt(targetText.replace('+', ''), 10);
+
+                    if (isNaN(target)) return;
+                    
+                    let current = 0;
+                    const duration = 2000; 
+                    const stepTime = 16;
+                    const totalSteps = Math.round(duration / stepTime);
+                    const increment = target / totalSteps;
+                    
+                    const updateCount = () => {
+                        current += increment;
+                        if (current >= target) {
+                            entry.target.innerText = target.toLocaleString() + displaySuffix;
+                        } else {
+                            entry.target.innerText = Math.floor(current).toLocaleString();
+                            requestAnimationFrame(updateCount);
+                        }
+                    };
+                    
+                    requestAnimationFrame(updateCount);
+                    observer.unobserve(entry.target); // Unobserve after animation starts
+                } else {
+                     observer.unobserve(entry.target); // Unobserve other elements after animation
+                }
+            }
+        });
+    }, {
+        threshold: 0.15 // Trigger a bit earlier
+    });
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+        // Add specific animation type class if not present
+        if (!el.classList.contains('fade-in') && !el.classList.contains('slide-up') && !el.classList.contains('slide-left') && !el.classList.contains('slide-right') && !el.classList.contains('zoom-in')) {
+            el.classList.add('fade-in'); // Default to fade-in
+        }
+        scrollObserver.observe(el);
+    });
+    document.querySelectorAll('.counter').forEach(el => scrollObserver.observe(el));
+
 
     // --- Dynamic Copyright Year ---
     const yearSpan = document.getElementById('copyright-year');
@@ -534,6 +925,90 @@ document.addEventListener('DOMContentLoaded', () => {
         yearSpan.textContent = new Date().getFullYear();
     }
 
+   // --- Enrichment Carousel Logic (Infinite) ---
+    const enrichmentWrapper = document.getElementById('enrichment-carousel-wrapper');
+    if (enrichmentWrapper) {
+        const slider = enrichmentWrapper.querySelector('#enrichment-slider');
+        const prevButton = enrichmentWrapper.querySelector('#enrichment-prev');
+        const nextButton = enrichmentWrapper.querySelector('#enrichment-next');
+        const originalCards = Array.from(slider.children);
+        let isTransitioning = false;
+        let cardWidthPlusGap = 0; // Will be calculated dynamically
+        const cloneCount = Math.min(originalCards.length, 4); // Clone up to 4, but not more than available
+
+        const setupCarousel = () => {
+            slider.innerHTML = ''; // Clear slider
+            originalCards.forEach(card => slider.appendChild(card)); // Add original cards back
+            
+            let currentCards = Array.from(slider.children);
+            if (currentCards.length < 1) return; // Exit if no cards
+
+            // Calculate width and gap dynamically
+            if (currentCards.length > 1) {
+                const cardRect1 = currentCards[0].getBoundingClientRect();
+                const cardRect2 = currentCards[1].getBoundingClientRect();
+                const gap = cardRect2.left - cardRect1.right;
+                cardWidthPlusGap = cardRect1.width + gap;
+            } else {
+                cardWidthPlusGap = currentCards[0].getBoundingClientRect().width;
+            }
+
+            // Prepend and append clones for the infinite effect
+            for (let i = 0; i < cloneCount; i++) {
+                slider.prepend(currentCards[currentCards.length - 1 - (i % currentCards.length)].cloneNode(true));
+                slider.appendChild(currentCards[i % currentCards.length].cloneNode(true));
+            }
+            
+            // Initial position
+            slider.style.transition = 'none';
+            counter = cloneCount;
+            slider.style.transform = `translateX(-${counter * cardWidthPlusGap}px)`;
+        };
+
+        let counter;
+
+        const moveSlider = () => {
+            slider.style.transition = 'transform 0.4s ease-in-out';
+            slider.style.transform = `translateX(-${counter * cardWidthPlusGap}px)`;
+        };
+
+        nextButton.addEventListener('click', () => {
+            if (isTransitioning) return;
+            counter++;
+            moveSlider();
+        });
+
+        prevButton.addEventListener('click', () => {
+            if (isTransitioning) return;
+            counter--;
+            moveSlider();
+        });
+
+        slider.addEventListener('transitionstart', () => {
+            isTransitioning = true;
+        });
+
+        slider.addEventListener('transitionend', () => {
+            isTransitioning = false;
+            // Jump to the equivalent clone if we've reached the end of the original items
+            if (counter >= originalCards.length + cloneCount) {
+                slider.style.transition = 'none';
+                counter = cloneCount;
+                slider.style.transform = `translateX(-${counter * cardWidthPlusGap}px)`;
+            }
+            if (counter < cloneCount) {
+                slider.style.transition = 'none';
+                counter = originalCards.length + counter;
+                slider.style.transform = `translateX(-${counter * cardWidthPlusGap}px)`;
+            }
+        });
+
+        // Initial setup
+        if (originalCards.length > 0) {
+            setupCarousel();
+            window.addEventListener('resize', setupCarousel);
+        }
+    }
 });
 </script>
 
